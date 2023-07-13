@@ -6,7 +6,7 @@ Feature: Seguidores
         When Navego à página do usuário "Diogo"
         And Clico no botão "Seguir"
         Then O botão "Seguir" atualiza para o botão "Parar de seguir"
-        And O usuário "Diogo" recebe uma notificação que recebeu um novo seguidor
+        And O usuário "Diogo" recebe uma mensagem "Mader começou a seguir você!"
 
     Scenario: Parar de seguir um usuário
         Given Estou conectado na minha conta "Mader"
