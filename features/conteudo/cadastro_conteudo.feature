@@ -38,3 +38,4 @@ Feature: Conteúdo
     And Preencho o formulário com diretor "Steven Spielberg" e duração "185 min"
     Then Recebo a mensagem de erro "Conteúdo já existente!"
     And Os conteúdos diretor "Steven Spielberg" e duração "185 min" não serão cadastrados
+    And Continuo na página "Cadastro de Conteúdo"
