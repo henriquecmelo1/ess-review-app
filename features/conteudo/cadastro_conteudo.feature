@@ -38,3 +38,12 @@ Feature: Conteúdo
     And Preencho o formulário com diretor "Steven Spielberg" e duração "185 min"
     Then Recebo a mensagem de erro "Conteúdo já existente!"
     And Os conteúdos diretor "Steven Spielberg" e duração "185 min" não serão cadastrados
+
+  Scenario: Cadastro de conteúdo em um filme não existente
+    Given Estou na página de "Cadastro de Conteúdo"
+    And O filme "Pulp Fiction" não existe no sistema
+    When Eu seleciono a opção "Cadastrar novo conteúdo"
+    And Eu seleciono o filme "Pulp Fiction" na lista de filmes cadastrados
+    And Preencho o formulário com diretor "Quentin Tarantino" e duração "154 min"
+    Then Recebo a mensagem de erro "Filme não encontrado!"
+    And O conteúdo diretor "Quentin Tarantino" e duração "154 min" não será cadastrado
