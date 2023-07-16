@@ -56,5 +56,5 @@ Feature: Conteúdo
     And Eu seleciono o filme "Interestelar" na lista de filmes cadastrados
     And Preencho o formulário com diretor "@#$%" e duração "ABC"
     And Eu seleciono a opção "Cadastrar"
-    Then Recebo a mensagem de erro "Por favor, verifique os dados informados."
+    Then Recebo a mensagem de erro "Campos inválidos."
     And Os conteúdos diretor "@#$%" e duração "ABC" não serão cadastrados.
