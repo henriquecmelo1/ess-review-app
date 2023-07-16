@@ -47,3 +47,13 @@ Feature: Conteúdo
     And Preencho o formulário com diretor "Quentin Tarantino" e duração "154 min"
     Then Recebo a mensagem de erro "Filme não encontrado!"
     And O conteúdo diretor "Quentin Tarantino" e duração "154 min" não será cadastrado
+
+  Scenario: Cadastro de conteúdo com dados inválidos
+    Given Estou na página de "Cadastro de Conteúdo"
+    And O filme "Interestelar" existe no sistema
+    When Eu seleciono a opção "Cadastrar novo conteúdo"
+    And Eu seleciono o filme "Interestelar" na lista de filmes cadastrados
+    And Preencho o formulário com diretor "@#$%" e duração "ABC"
+    And Eu seleciono a opção "Cadastrar"
+    Then Recebo a mensagem de erro "Por favor, verifique os dados informados."
+    And Os conteúdos diretor "@#$%" e duração "ABC" não serão cadastrados.
