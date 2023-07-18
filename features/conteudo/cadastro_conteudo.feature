@@ -18,7 +18,7 @@ Feature: Conteúdo
     And Vejo o filme "Interestelar" na "Lista de filmes"
     When Eu seleciono a opção "Cadastrar novo filme"
     And Preencho o formulário com nome "Interestelar", gênero "Ficção Científica" e ano "2014"
-    Then Recebo a mensagem de erro "O filme já existe!"
+    Then Recebo a mensagem de erro "O filme já existe"
     And O formulário é limpo para receber novos dados
 
   Scenario: Cadastro de conteúdo novo de filme existente
