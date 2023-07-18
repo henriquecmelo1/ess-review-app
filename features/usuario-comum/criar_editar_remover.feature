@@ -16,7 +16,7 @@ Feature: Usuário Comum
     When Eu preencho o formulário de cadastro com nome "Heitor", e-mail "hbp@cin.ufpe.br", login "Hbprado" e senha "1234"
     And Seleciono a opção "Submeter"
     Then Eu recebo a mensagem de erro "Esse e-mail já está cadastrado"
-    And Meu usuário com nome "Heitor", e-mail "hbp@cin.ufpe.br", login "Hbprado" e senha "1234" não será criado
+    And Meu usuário com nome "Heitor", e-mail "hbp@cin.ufpe.br", login "Hbprado" e senha "12345" não será criado
 
   Scenario: Criação de usuário comum com e-mail inválido
     Given Estou na página "Criação de Usuário"
