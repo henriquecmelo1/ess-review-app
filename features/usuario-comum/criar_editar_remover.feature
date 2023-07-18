@@ -8,7 +8,7 @@ Feature: Usuário Comum
     And Não existe um usuário com e-mail "hbp@cin.ufpe.br"
     When Eu preencho o formulário de cadastro com nome "Heitor", e-mail "hbp@cin.ufpe.br", login "Hbprado" e senha "1234"
     And Seleciono a opção "Submeter"
-    Then Eu vejo a mensagem de confirmação "Usuário criado com sucesso!"
+    Then Eu vejo a mensagem de confirmação "Usuário criado com sucesso"
 
   Scenario: Criação de usuário comum com e-mail já cadastrado
     Given Estou na página "Criação de Usuário"
