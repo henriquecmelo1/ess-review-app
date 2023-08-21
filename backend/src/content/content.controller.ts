@@ -1,9 +1,9 @@
 import { Controller, Delete, Param } from '@nestjs/common';
 import { ContentService } from './content.service';
-
+import { ContentDto } from './dto';
 @Controller('content')
 export class ContentController {
-    constructor(private readonly contentService: ContentService) {}
+    constructor(private contentService: ContentService) {}
 
     @Delete(':id')
   async removeContent(@Param('id') id: number) {
