@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  username      String
+  email         String         @unique
+  password      String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  watchedMovies WatchedMovie[]
+  reviews       Review[]
+  friends       User[]         @relation("Friendship")
+  friendOf      User[]         @relation("Friendship")
+}
+
+model WatchedMovie {
+  id         Int      @id @default(autoincrement())
+  movieTitle String
+  userId     Int
+  watchedAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  content   String
+  userId    Int
+  rating    Rating
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  Content   Content  @relation(fields: [contentId], references: [id])
+  contentId Int
+}
+
+model Content {
+  id           Int            @id @default(autoincrement())
+  title        String
+  duration     Int
+  genre        String
+  director     String
+  availability Availability[]
+  reviews      Review[]
+}
+
+model Availability {
+  id        Int     @id @default(autoincrement())
+  contentId Int
+  plataform String
+  link      String
+  content   Content @relation(fields: [contentId], references: [id])
+}
+
+enum Rating {
+  ONE
+  TWO
+  THREE
+  FOUR
+  FIVE
+}
