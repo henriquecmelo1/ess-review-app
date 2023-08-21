@@ -19,8 +19,8 @@ model User {
   updatedAt     DateTime       @updatedAt
   watchedMovies WatchedMovie[]
   reviews       Review[]
-  friends       User[]         @relation("Friendship")
-  friendOf      User[]         @relation("Friendship")
+  followers       User[]         @relation("Relationship")
+  following      User[]         @relation("Relationship")
 }
 
 model WatchedMovie {
