@@ -6,7 +6,7 @@ import { PrismaService } from '../prisma/prisma.service'; // Importe o serviço 
 export class AvailabilityService {
   constructor(private prisma: PrismaService) {}
 
-  async getAvailabilityByContentId(contentId: string) {
+  async getAvailabilityByContentId(contentId: string): Promise<void> {
     return this.prisma.availability.findMany({
       where: { contentId },
     });

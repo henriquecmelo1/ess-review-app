@@ -10,3 +10,6 @@ export class AvailabilityController {
     return this.availabilityService.getAvailabilityByContentId(contentId);
   }
 }
+
+
+

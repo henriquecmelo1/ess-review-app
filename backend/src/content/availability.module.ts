@@ -8,3 +8,4 @@ import { PrismaService } from '../prisma/prisma.service'; // Importe o serviço 
   providers: [AvailabilityService, PrismaService],
 })
 export class AvailabilityModule {}
+
