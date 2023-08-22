@@ -6,7 +6,6 @@ Feature: Seguidores
         When Navego à página do usuário "Diogo"
         And Clico no botão "Seguir"
         Then O botão "Seguir" atualiza para o botão "Parar de seguir"
-        And O usuário "Diogo" recebe uma notificação que recebeu um novo seguidor
 
     Scenario: Parar de seguir um usuário
         Given Estou conectado na minha conta "Mader"
@@ -17,18 +16,24 @@ Feature: Seguidores
     
     Scenario: Ver lista de seguindo
         Given Estou conectado na minha conta "Mader"
-        And Sigo o usuário "Diogo"
+	And Sigo os usuários "Alexandre", "Leonardo diCaprio" e "Diogo"
         And Estou na página "Meu perfil"
         When Clico no botão "Seguindo"
         Then Navego à página "Seguindo"
-        And Vejo uma lista dos usuários que eu sigo junto com "Diogo"  
+        And Vejo uma lista com os usuários "Alexandre", "Leonardo diCaprio" e "Diogo"
     
-    Scenario: Ver lista de seguindo
+    Scenario: Ver lista de seguidores
         Given Estou conectado na minha conta "Mader"
-        And Sou seguido pelo usuário "Diogo"
+        And Sou seguido pelos usuários "Alexandre", "Diogo", "Carlos" e "João"
         And Estou na página "Meu perfil"
         When Clico no botão "Seguidores"
         Then Navego à página "Seguidores"
-        And Vejo uma lista dos usuários que me seguem junto com "Diogo"  
+        And Vejo uma lista com os usuários que "Alexandre", "Diogo", "Carlos" e "João"
+
+    Scenario: Notificação de novo seguidor
+        Given Estou conectado na minha conta "Mader"
+        When O usuário "Diogo" começa a seguir meu perfil
+        Then Recebo uma mensagem "Diogo começou a seguir você!"
+  
 
     
