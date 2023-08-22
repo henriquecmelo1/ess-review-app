@@ -3,7 +3,7 @@ import { RelationshipService } from './relationship.service';
 import { UserService } from 'src/user/user.service';
 import { PrismaService } from 'src/prisma/prisma.service';
 
-describe('FollowService', () => {
+describe('RelationshipService', () => {
   let relationshipService: RelationshipService;
   let userService: UserService;
 
@@ -16,7 +16,7 @@ describe('FollowService', () => {
     userService = module.get<UserService>(UserService);
   });
 
-  describe('isFollowing', () => {
+  describe('Is the user following', () => {
     it('should return true if user is following', async () => {
       const followerId = 1; 
       const followingId = 2; 
