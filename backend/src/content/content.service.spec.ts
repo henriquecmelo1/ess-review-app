@@ -32,6 +32,7 @@ describe('ContentService', () => {
           director: 'mock director',
         },
       })
+      
       const mockContentId = 1;
       const deleteSpy = jest.spyOn(prismaService.content, 'delete');
 
@@ -44,7 +45,7 @@ describe('ContentService', () => {
     });
 
     it('should throw NotFoundException when content does not exist', async () => {
-      const mockContentId = 999; // Assume-se que este ID não existe
+      const mockContentId = -1; // Assumindo que este ID não existe
       jest.spyOn(prismaService.content, 'findUnique').mockResolvedValue(null);
 
       try {
@@ -75,7 +76,7 @@ describe('ContentService', () => {
       });
   
       it('should throw NotFoundException when content does not exist', async () => {
-        const mockContentId = 999; // Assume-se que este ID não existe
+        const mockContentId = -1; // Assumindo que este ID não existe
         const mockUpdateData: UpdateContentDto = {
           title: 'Updated Title',
         };
