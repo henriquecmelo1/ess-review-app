@@ -4,7 +4,7 @@ services:
   dev-db:
     image: postgres:latest  # You can specify a specific version if needed
     ports:
-      - 5432:5432  # Map the container's port to the host's port
+      - 5434:5432  # Map the container's port to the host's port
     container_name: ess-container  # Name your container
     environment:
       POSTGRES_DB: nest  # Change this to your desired database name
