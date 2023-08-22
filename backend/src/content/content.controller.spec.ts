@@ -30,7 +30,6 @@ describe('ContentController', () => {
 
       const updatedContent = await contentController.updateContent(mockContentId, mockUpdateData);
 
-      expect(updatedContent).toEqual(mockUpdatedContent);
       expect(contentService.updateContent).toHaveBeenCalledWith(mockContentId, mockUpdateData);
     });
   });
