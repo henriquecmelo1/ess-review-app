@@ -23,11 +23,23 @@ describe('ContentService', () => {
 
   describe('removeContent', () => {
     it('should remove content by ID', async () => {
+      const mockContent = await prismaService.content.create({
+        data: {
+          id: 1,
+          title: 'mock title',
+          duration: 120,
+          genre: 'mock genre',
+          director: 'mock director',
+        },
+      })
       const mockContentId = 1;
       const deleteSpy = jest.spyOn(prismaService.content, 'delete');
 
       await contentService.removeContent(mockContentId);
 
+      const newMockContent = await prismaService.content.findUnique({ where: { id: mockContentId } });
+      
+      expect(newMockContent).toEqual(null);
       expect(deleteSpy).toHaveBeenCalledWith({ where: { id: mockContentId } });
     });
 

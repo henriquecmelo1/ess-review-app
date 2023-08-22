@@ -28,6 +28,7 @@ describe('ContentController', () => {
 
       jest.spyOn(contentService, 'updateContent').mockResolvedValue(mockUpdatedContent);
 
+    
       const updatedContent = await contentController.updateContent(mockContentId, mockUpdateData);
 
       expect(contentService.updateContent).toHaveBeenCalledWith(mockContentId, mockUpdateData);
