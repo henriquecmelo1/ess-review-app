@@ -12,13 +12,6 @@ Scenario: Edição de conteúdo de filme existente
   And Eu seleciono a opção "Concluir"
   Then Recebo a mensagem de confirmação "Cadastro Alterado!"
 
-Scenario: Remoção de conteúdo da plataforma
-  Given Estou na página de um filme que não existe
-  And Quero remover o filme da plataforma
-  When Eu seleciono a opção "Editar"
-  And seleciono a opção "Remover"
-  Then Recebo a mensagem de confirmação "Conteúdo Removido!"
-
 Scenario: Edição de conteúdo falha por não achar dados corretos
   Given Estou na página do filme "Inception"
   And Na página do filme o campo de gênero está vazio
@@ -28,8 +21,8 @@ Scenario: Edição de conteúdo falha por não achar dados corretos
   And Eu seleciono a opção "Concluir"
   Then O programa pesquisa na base de dados pelo gênero
   And O programa não encontra o gênero na base de dados
-  And O programa retorna uma mensagem de erro "Gênero não encontrado" 
-  
+  And O programa retorna uma mensagem de erro "Gênero não encontrado"
+
 Scenario: Completar cadastro de um filme
   Given Estou na página do filme "Barbie"
   And Nas informações do filme está faltando a direção
@@ -37,11 +30,4 @@ Scenario: Completar cadastro de um filme
   When Eu seleciono a opção "Editar"
   And Preencho o campo de direção com o nome "Greta Gerwig"
   And Eu seleciono a opção "Concluir"
-  Then Recebo a mensagem de confirmação "Cadastro Alterado!"
-
-  
-
-
-
-
-
+  Then Recebo a mensagem de confirmação "Cadastro Alterado!" 
