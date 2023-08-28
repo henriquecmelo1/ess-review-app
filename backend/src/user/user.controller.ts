@@ -22,4 +22,9 @@ export class UserController {
     deleteUser(@GetUser('id') userId:number){
         return this.userService.deleteUser(userId)
     }
+
+    @Delete(':id')
+    deleteUserById(@GetUser('id') userId: number){
+        return this.userService.deleteUser(userId)
+    }
 }
