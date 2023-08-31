@@ -1,14 +1,18 @@
+// movie-availability.service.ts
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-
 
 @Injectable()
 export class AvailabilityService {
   constructor(private prisma: PrismaService) {}
 
-  async getAvailabilityByContentId(contentId: string): Promise<void> {
+  async getMovieAvailabilityByTitle(movieTitle: string) {
     return this.prisma.availability.findMany({
-      where: { contentId },
+      where: {
+        content: {
+          title: movieTitle,
+        },
+      },
     });
   }
 }
