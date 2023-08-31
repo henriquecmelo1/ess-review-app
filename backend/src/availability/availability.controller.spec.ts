@@ -20,7 +20,7 @@ describe('AvailabilityController', () => {
   describe('getAvailability', () => {
     it('should return availability for a contentId', async () => {
         const mockAvailability = {id: 1, title: 'Titanic', contentID: 2, plataform: 'Star+', link: 'https://www.starplus.com/pt-br/movies/titanic/1vXLGiOUqEP9', content: 3};
-        jest.spyOn(availabilityService, 'getAvailabilityByContentId').mockResolvedValue(mockAvailability);
+        //jest.spyOn(availabilityService, 'getAvailabilityByContentId').mockResolvedValue(mockAvailability);
       const result = await availabilityController.getAvailability('2');
 
       expect(result).toEqual(mockAvailability);
