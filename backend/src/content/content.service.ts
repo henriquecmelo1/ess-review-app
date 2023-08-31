@@ -37,11 +37,11 @@ export class ContentService {
       const Content = await this.prisma.content.findUnique({ where: { id } });
   
       if (!Content) {
-        throw new NotFoundException(`Content with ID ${id} not found`);
+        throw new NotFoundException(`Conteúdo com ID ${id} não encontrado`);
       }
   
       await this.prisma.content.delete({ where: { id } });
-      return { message: `Content with ID ${id} has been removed` };
+      return { message: `Conteúdo com ID ${id} foi removido` };
     }
 
     async updateContent(id: number, updateData: UpdateContentDto) {

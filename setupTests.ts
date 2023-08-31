@@ -19,7 +19,7 @@ beforeEach(async () => {
       }),
     );
     await app.init();
-    await app.listen(3333);
+    await app.listen(0);
 
     prisma = app.get(PrismaService);
     await prisma.cleanDb();
