@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards, Patch, Body, Delete } from '@nestjs/common';
+import { Controller, Get, UseGuards, Patch, Body, Delete, Post, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { JwtGuard } from '../auth/guard';
 import { GetUser } from '../auth/decorator';
@@ -26,5 +26,15 @@ export class UserController {
     @Delete(':id')
     deleteUserById(@GetUser('id') userId: number){
         return this.userService.deleteUser(userId)
+    }
+
+    @Post(':id/follow')
+    followUser(@GetUser('id') userId: number, @Param('id') targetUserId: number){
+        return this.userService.addFollower(userId, targetUserId);
+    }
+
+    @Post(':id/unfollow')
+    unfollowUser(@GetUser('id') userId: number, @Param('id') targetUserId: number){
+        return this.userService.removeFollower(userId, targetUserId);
     }
 }
