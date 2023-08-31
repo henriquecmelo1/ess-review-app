@@ -2,6 +2,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.3",
     "@types/passport-jwt": "^3.0.9",
+    "jest-cucumber": "^3.0.1",
     "prisma": "^5.1.1"
   },
   "dependencies": {
