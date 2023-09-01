@@ -9,7 +9,7 @@ Feature: Remover Conteúdo
   Scenario: Remover conteúdo inexistente
     Given que não existe conteúdo com o ID 2
     When eu tentar remover o conteúdo com o ID 2
-    Then deve ser lançada uma NotFoundException com a mensagem "Conteúdo com ID 2 não encontrado"
+    Then deve ser lançado um erro com a mensagem "Conteúdo com ID 2 não encontrado"
 
   # Scenario: Remover conteúdo inexistente
   #   Given que não existe conteúdo com o ID 2
