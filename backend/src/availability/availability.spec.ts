@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AvailabilityService } from './availability.service';
 import { PrismaService } from '../prisma/prisma.service';
 
-const feature = loadFeature('./availability/availability.feature');
+const feature = loadFeature('../features/availability.feature');
 
 defineFeature(feature, (test) => {
   let availabilityService: AvailabilityService;
