@@ -8,8 +8,46 @@
 - Luis Guilherme Monteiro Maciel Nunes (lgmmn)
 - Henrique Carvalho de Melo (hcm)
 
-### Dependências
+### Dependencies
 
 - [Nestjs](https://nestjs.com)
 - [Angular](https://angular.io)
 - [npm](https://www.npmjs.com)
+- [Docker](https://www.docker.com/products/docker-desktop/)
+- [Prisma](https://www.prisma.io)
+
+### Instalando dependências
+Nestjs
+```bash
+npm install -g @nestjs/cli
+```
+Angular
+```bash
+npm install -g @angular/cli
+```
+Prisma
+```bash
+npm install -g @prisma/client
+```
+Instale o Docker Desktop nesse [link](https://www.docker.com/products/docker-desktop/)
+
+### Rodando o projeto
+Primeiramente configure o arquivo .env na raiz do projeto
+```bash
+DATABASE_URL=""
+JWT_SECRET=''
+```
+Inicie o projeto executando o comando
+```bash
+docker-compose up -d
+```
+Inicie o servidor, no direório backend
+```bash
+npm start
+```
+Inicie o cliente, no direório frontend
+```bash
+ng serve
+```
+Para acessar o projeto acesse o [localhost:4200](http://localhost:4200)
+
