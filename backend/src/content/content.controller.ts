@@ -24,16 +24,17 @@ export class ContentController {
     }    
 
     @Delete(':id')
-    async removeContent(@Param('id') id: number) {
-        return this.contentService.removeContent(id);
+    async removeContent(@GetUser('id') userId: number, @Param('id', ParseIntPipe) contentId: number) {
+        return this.contentService.removeContent(userId, contentId);
     }
 
     @Patch(':id')
     async updateContent(
-        @Param('id') id: number,
-        @Body() updateData: UpdateContentDto,
+        @GetUser('id') userId: number,
+        @Param('id', ParseIntPipe) contentId: number,
+        @Body() dto: UpdateContentDto,
     ) {
-        return this.contentService.updateContent(id, updateData);
+        return this.contentService.updateContent(userId, contentId, dto);
     }
 }
 
