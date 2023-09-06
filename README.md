@@ -32,14 +32,14 @@ npm install -g @prisma/client
 Instale o Docker Desktop nesse [link](https://www.docker.com/products/docker-desktop/)
 
 ### Rodando o projeto
-Primeiramente configure o arquivo .env na raiz do projeto
+Primeiramente configure o arquivo .env e o .env.test na raiz do projeto
 ```bash
 DATABASE_URL=""
 JWT_SECRET=''
 ```
-Inicie o projeto executando o comando
+Inicie o ambiente de dev executando o comando
 ```bash
-docker-compose up -d
+npm run db:dev:up
 ```
 Inicie o servidor, no direório backend
 ```bash
@@ -48,6 +48,10 @@ npm start
 Inicie o cliente, no direório frontend
 ```bash
 ng serve
+```
+Inicie o ambiente de teste executando o comando
+```bash
+npm run db:test:up
 ```
 Para acessar o projeto acesse o [localhost:4200](http://localhost:4200)
 
