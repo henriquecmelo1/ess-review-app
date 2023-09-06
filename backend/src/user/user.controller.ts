@@ -13,7 +13,7 @@ export class UserController {
         return user;
     }
 
-    @Patch()
+    @Patch(':id')
     editUser(@Body() dto:EditUserDto, @GetUser('id') userId: number){
         return this.userService.editUser(userId, dto)
     }
