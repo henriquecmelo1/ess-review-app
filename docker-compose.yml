@@ -12,5 +12,16 @@ services:
       POSTGRES_PASSWORD: 123  # Change this to your desired password
     networks:
       - ess-review-app
+  test-db:
+    image: postgres:latest  # You can specify a specific version if needed
+    ports:
+      - 5435:5432  # Map the container's port to the host's port
+    container_name: ess-test-container  # Name your container
+    environment:
+      POSTGRES_DB: nest  # Change this to your desired database name
+      POSTGRES_USER: postgres    # Change this to your desired username
+      POSTGRES_PASSWORD: 123  # Change this to your desired password
+    networks:
+      - ess-review-app
 networks:
   ess-review-app:
