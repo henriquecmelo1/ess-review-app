@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from  '@angular/forms';
@@ -16,7 +15,7 @@ import { MatSelectModule} from '@angular/material/select';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +26,6 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
@@ -36,6 +34,17 @@ import { RegisterComponent } from './components/register/register.component';
     MatSelectModule,
     MatTabsModule,
     MatIconModule,
+    RouterModule.forRoot([
+      {
+        path:'', component :HomeComponent,
+      },
+      {
+        path: 'auth/signin', component: LoginComponent,
+      },
+      {
+        path: 'auth/signup', component: RegisterComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
