@@ -4,7 +4,7 @@
     line-height: 1.5;
     --primary-blue: #233975
 }
-
+ 
 body {
     padding: 0;
     margin: 0;
@@ -37,7 +37,14 @@ a:hover{
 .left{
     height: 200px;
 }
-.left, .right{
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+ 
+.right{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +93,7 @@ label{
 .input-container.password{
     position: relative;
 }
-
+ 
 .input-container.password i{
     position: absolute;
     top:42px;
@@ -138,8 +145,8 @@ label{
 .signup-btn{
     display: block;
     width: 100%;
-    background: var(--primary-blue);
-    color: black;
+    background: #2c4893;
+    color: white;   
     font-weight: 700;
     border: none;
     padding: 1rem;
@@ -149,7 +156,7 @@ label{
     letter-spacing: 0.5px;
 }
 .signup-btn:hover{
-    background: #2c4893;
+    background: rgb(156, 156, 179);
     cursor: pointer;
 }
 @media screen and (min-width: 900px) {
