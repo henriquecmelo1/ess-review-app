@@ -23,10 +23,6 @@ export class UserController {
         return this.userService.deleteUser(userId)
     }
 
-    @Delete(':id')
-    deleteUserById(@GetUser('id') userId: number){
-        return this.userService.deleteUser(userId)
-    }
 
     @Post(':id/follow')
     followUser(@GetUser('id') userId: number, @Param('id') targetUserId: number){
@@ -37,4 +33,28 @@ export class UserController {
     unfollowUser(@GetUser('id') userId: number, @Param('id') targetUserId: number){
         return this.userService.removeFollower(userId, targetUserId);
     }
+
+    @Get(':id/followers')
+    async getFollowers(@Param('id') userId: number): Promise<User[]> {
+        const followers = await this.userService.getFollowers(userId);
+        return followers;
+    }
+
+    @Get(':id/following')
+    async getFollowing(@Param('id') userId: number): Promise<User[]> {
+        const following = await this.userService.getFollowing(userId);
+        return following;
+    }
+    
+    @Get(':id/is-following')
+    async isFollowing(
+        @GetUser('id') userId: number,
+        @Param('id') targetUserId: number,
+    ): Promise<boolean> {
+        const isFollowing = await this.userService.isFollowing(userId, targetUserId);
+        return isFollowing;
+    }
 }
+
+
+
