@@ -16,20 +16,20 @@
             </section>
             <div class="input-container name">
                 <label for="fname">Username</label>
-                <input type="text" name="fname" id="fname">     
+                <input [(ngModel)]="loginDto.username" type="text" name="fname" id="fname">     
             </div>
             <div class="input-container email">
                 <label for="fname">Email</label>
-                <input type="email" name="email" id="email">     
+                <input [(ngModel)]="loginDto.email" type="email" name="email" id="email">     
             </div>
             <div class="input-container password">
                 <label for="fname">Senha</label>
-                <input type="password" name="password" id="password">     
+                <input [(ngModel)]="loginDto.password" type="password" name="password" id="password">     
                 <i class="far fa-eye-slash"></i>
             </div>
             <div class="input-container cta">
             </div>
-            <button class="signup-btn" type="submit">Entrar</button>
+            <button (click)="Login(loginDto)" class="signup-btn" type="submit">Entrar</button>
         </form>
     </div>
 </div>
