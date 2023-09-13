@@ -18,6 +18,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     CarouselComponent,
     ProfileComponent,
+    UserHomeComponent,
   ],
   imports: [
     SlickCarouselModule,
@@ -50,8 +52,11 @@ import { ProfileComponent } from './components/profile/profile.component';
         path: 'auth/signin', component: LoginComponent,
       },
       {
-        path: 'auth/signup', component: RegisterComponent
+        path: 'auth/signup', component: RegisterComponent,
       },
+      {
+        path: 'home/:id', component: UserHomeComponent,
+      }
     ])
   ],
   providers: [],
