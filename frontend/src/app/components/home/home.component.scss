@@ -41,6 +41,8 @@
   }
 .line-container{
     border-bottom: 1.5px solid black;
+    height: 1.5px; 
+    width: 1080px;
 }
 .background-container{
     background-image: url('../../../assets/background.jpg');
@@ -57,4 +59,14 @@
     align-items: center;
     padding: 10rem;
     color: white;
+    padding-bottom: 3px;
+    padding-top: 120px;
+}
+.title{
+    color: #F5F5F5;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
