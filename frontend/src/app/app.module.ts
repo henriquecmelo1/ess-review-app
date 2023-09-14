@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
-import { EditContentComponent } from './edit-content/edit-content.component';
+import { EditContentComponent } from './components/edit-content/edit-content.component';
 
 @NgModule({
   declarations: [
