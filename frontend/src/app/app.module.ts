@@ -67,7 +67,7 @@ import { CommonModule } from '@angular/common';
         path: 'home/:id', component: UserHomeComponent,
       },
       {
-        path: 'edit', component: EditContentComponent,
+        path: 'edit/:id', component: EditContentComponent,
       },
       {
         path: 'profile', component: ProfileComponent,

@@ -14,14 +14,13 @@
                 </div>
                 <div class="user-icon">
                     <img src="../../../assets/userIcon.png" alt="User-Avatar">
-                    <p id="username">HEITCHO</p>
                 </div> 
             </div>
 
         </nav>
     </header>
-     <section class="copy">
-        <h2>Editar</h2>
+     <section class="title-container">
+        <h2>Editar Filme 1</h2>
     </section>
     <form class="form-container">
         <div class="input-container title">
@@ -41,5 +40,6 @@
             <input [(ngModel)]="contentdto.genre" type="text" name="genre" id="genre">     
         </div>
         <button (click)="editContent(contentdto)" class="edit-btn" type="submit">Atualizar</button>
+        <button (click)="removeContent(contentdto)" class="delete-btn" type="submit">Deletar</button>
     </form>
 </div>

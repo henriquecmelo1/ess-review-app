@@ -28,6 +28,9 @@ export class AuthService{
         return this.http.patch<ContentModel>('http://localhost:3000/contents', content)
     }
   
+    public removeContent(content: ContentModel): Observable<ContentModel>{
+        return this.http.delete<ContentModel>('http://localhost:3000/contents')
+    }
     getUser(): Observable<User> {
         return this.http.get<User>('http://localhost:3000/users/me');
     }
