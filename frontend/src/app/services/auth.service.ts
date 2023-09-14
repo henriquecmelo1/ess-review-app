@@ -27,11 +27,15 @@ export class AuthService{
     public editContent(content: ContentModel): Observable<ContentModel>{
         return this.http.patch<ContentModel>('http://localhost:3000/contents', content)
     }
-
-    public getUser(): Observable<User> {
+  
+    getUser(): Observable<User> {
         return this.http.get<User>('http://localhost:3000/users/me');
     }
-    public getMovie(): Observable<ContentModel>{
+    createContent(content: ContentModel): Observable<ContentModel>{
+        return this.http.post<ContentModel>('http://localhost:3000/contents', content);
+    }
+ 
+    getMovie(): Observable<ContentModel>{
         return this.http.get<ContentModel>('http://localhost:3000/contents');
     }
     
