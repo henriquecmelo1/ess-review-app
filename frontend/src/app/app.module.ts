@@ -20,7 +20,9 @@ import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { EditContentComponent } from './components/edit-content/edit-content.component';
 import { AuthInterceptor } from './services/interceptor';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { AuthInterceptor } from './services/interceptor';
     CarouselComponent,
     ProfileComponent,
     UserHomeComponent,
+    EditContentComponent,
   ],
   imports: [
     SlickCarouselModule,
@@ -61,13 +64,14 @@ import { AuthInterceptor } from './services/interceptor';
         path: 'home/:id', component: UserHomeComponent,
       },
       {
+        path: 'edit', component: EditContentComponent,
+      },
+      {
         path: 'profile/:id', component: ProfileComponent,
       },
       {
         path: 'search', component: SearchComponent,
       }
-      
-
     ])
   ],
   providers: [{
