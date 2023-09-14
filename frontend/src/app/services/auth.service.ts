@@ -5,7 +5,6 @@ import { Register } from "../models/register";
 import { ContentModel } from "../models/content";
 import { Observable, map } from "rxjs";
 import { JwtAuth } from "../models/jwtAuth";
-import { ContentModel } from "../models/content";
 import { User } from '../models/userModel'
 
 
@@ -27,11 +26,12 @@ export class AuthService{
   
     public editContent(content: ContentModel): Observable<ContentModel>{
         return this.http.patch<ContentModel>('http://localhost:3000/contents', content)
+    }
 
-    getUser(): Observable<User> {
+    public getUser(): Observable<User> {
         return this.http.get<User>('http://localhost:3000/users/me');
     }
-    getMovie(): Observable<ContentModel>{
+    public getMovie(): Observable<ContentModel>{
         return this.http.get<ContentModel>('http://localhost:3000/contents');
     }
     
