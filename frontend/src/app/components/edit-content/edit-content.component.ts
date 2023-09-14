@@ -16,8 +16,10 @@ export class EditContentComponent {
 
     editContent(contentdto: ContentModel){
       return this.authservice.editContent(contentdto).subscribe()
-      
-      
+       
+    }
+    removeContent(contentdto: ContentModel){
+      return this.authservice.removeContent(contentdto).subscribe()
     }
 }
 
