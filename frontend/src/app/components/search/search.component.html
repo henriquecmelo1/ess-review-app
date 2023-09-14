@@ -1,20 +1,39 @@
 <div class="background-container">
-    <header>
-      <nav>
-        <div class="home-container">
-            <div class="logo">
-                <img src="../../../assets/icon.png" alt="Logo">
-            </div>
-            <div class="nav-container">
-                <div class="options">
-                    <a href="#" class="option"  style="text-decoration: none">FILMES</a>
-                    <a href="#" class="option"  style="text-decoration: none">REVIEWS</a>
-                    <a href="#" class="option"  (click)="redirectToSignin($event)" style="text-decoration: none">ENTRAR</a>
-                    <a href="#" class="option"  (click)="redirectToSignup($event)" style="text-decoration: none">CADASTRAR</a>
-                    <a href="#" class="option"  (click)="redirectToSearch($event)" style="text-decoration: none">PESQUISA</a>
-                </div>
-            
-            </div>            
+  <header>
+    <nav>
+      <div class="home-container">
+        <div class="logo">
+          <img src="../../../assets/icon.png" alt="Logo">
         </div>
+        <div class="nav-container">
+          <div class="options">
+            <a href="#" class="option" style="text-decoration: none">FILMES</a>
+            <a href="#" class="option" style="text-decoration: none">REVIEWS</a>
+            <a href="#" class="option" (click)="redirectToSignin($event)" style="text-decoration: none">ENTRAR</a>
+            <a href="#" class="option" (click)="redirectToSignup($event)" style="text-decoration: none">CADASTRAR</a>
+            <a href="#" class="option" (click)="redirectToSearch($event)" style="text-decoration: none">PESQUISA</a>
+          </div>
+        </div>
+      </div>
     </nav>
-      <body>
+  </header>
+  <div class="centralizar">
+    <div class="divBusca">      
+      <input 
+        type="text"
+        class = "textoBusca"
+        placeholder="Buscar..." 
+        [(ngModel)] = "userSearch"
+      />
+      <button class="lupa" (click)="ngOnInit()">PESQUISAR</button>
+      
+    </div>
+
+    <div class="movie-details" *ngIf="contentDto">
+      <h2>Title: {{ contentDto.title }}</h2>
+      <p>Director: {{ contentDto.director }}</p>
+      <p>Genre: {{ contentDto.genre }}</p>
+      <p>Duration: {{ contentDto.duration }}</p>
+    </div>
+  </div>
+  

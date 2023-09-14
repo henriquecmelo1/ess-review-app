@@ -20,7 +20,9 @@ import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { EditContentComponent } from './components/edit-content/edit-content.component';
 import { AuthInterceptor } from './services/interceptor';
+
 import { FollowersListComponent } from './components/followerlist/follower-list.component';
 import { FollowingListComponent } from './components/followinglist/following-list.component';
 import { CommonModule } from '@angular/common';
@@ -34,6 +36,7 @@ import { CommonModule } from '@angular/common';
     CarouselComponent,
     ProfileComponent,
     UserHomeComponent,
+    EditContentComponent,
   ],
   imports: [
     SlickCarouselModule,
@@ -64,6 +67,9 @@ import { CommonModule } from '@angular/common';
         path: 'home/:id', component: UserHomeComponent,
       },
       {
+        path: 'edit', component: EditContentComponent,
+      },
+      {
         path: 'profile', component: ProfileComponent,
       },
       {
@@ -74,6 +80,9 @@ import { CommonModule } from '@angular/common';
       },
       {
         path: 'followers', component: FollowersListComponent,
+      },
+      {
+        path: 'edit', component: EditContentComponent,
       },
     ])
   ],

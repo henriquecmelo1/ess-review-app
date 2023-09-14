@@ -1,6 +1,6 @@
-export class Content{
+export class ContentModel {
     title = '';
+    director = '';
     genre = '';
     duration = '';
-    director ='';
 }
