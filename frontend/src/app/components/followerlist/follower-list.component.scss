@@ -1,0 +1,278 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-poppins: Poppins;
+  
+    /* font sizes */
+    --font-size-13xl: 32px;
+    --font-size-17xl: 36px;
+    --font-size-5xl: 24px;
+  
+    /* Colors */
+    --color-gainsboro-100: #d8e0e8;
+    --color-white: #fff;
+  }
+  
+  
+
+.image-7-icon {
+    position: absolute;
+    top: 249px;
+    left: 103px;
+    width: 188px;
+    height: 188px;
+    object-fit: cover;
+  }
+  .heitor {
+    position: absolute;
+    top: 373px;
+    left: 337px;
+    font-weight: 00;
+    color: #fff;
+    font-size: 28px;
+    display: inline-block;
+    width: 101px;
+    height: 42px;
+  }
+  .perfil-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #0f0b38;
+    width: 4000px;
+    height: 130px;
+  }
+  .filmes,
+  .reviews {
+    position: absolute;
+    top: 52px;
+    left: 859px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 18px;
+    display: inline-block;
+    width: 144px;
+    height: 82px;
+    &:hover {
+        color: #3f51b5;
+    }
+  }
+  .reviews {
+    left: 992px;
+    width: 163px;
+  }
+  .image-7-icon1 {
+    
+    position: absolute;
+    top: 0;
+    margin-left: 10px;
+    width: 190px;
+    height: 212px;
+    object-fit: cover;
+  }
+  .logo-icon{
+    position: absolute;
+    top: 0;
+    margin-left: 10px;
+    width: 190px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .image-7-icon1 {
+    top: 6px;
+    left: 100px;
+    width: 59px;
+    height: 59px;
+  }
+  .username1 {
+    position: absolute;
+    top: 15px;
+    left: 190px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    width: 101px;
+    height: 42px;
+  }
+  .setinha,
+  .image-7-parent {
+    position: absolute;
+    overflow: hidden;
+  }
+  .setinha {
+    top: 36px;
+    left: 230px;
+    width: 21px;
+    height: 13.58px;
+    object-fit: cover;
+  }
+  .image-7-parent {
+    top: 38px;
+    left: 1171px;
+    width: 241px;
+    height: 72px;
+    color: var(--color-gainsboro-100);
+  }
+
+  .background-container{
+    background-image: url('../../../../assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    z-index: 0;
+}
+  
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-poppins: Poppins;
+
+  /* font sizes */
+  --font-size-13xl: 32px;
+  --font-size-17xl: 36px;
+  --font-size-5xl: 24px;
+
+  /* Colors */
+  --color-gainsboro-100: #d8e0e8;
+  --color-white: #fff;
+}
+
+
+
+.image-7-icon {
+  position: absolute;
+  top: 249px;
+  left: 103px;
+  width: 188px;
+  height: 188px;
+  object-fit: cover;
+}
+.heitor {
+  position: absolute;
+  top: 373px;
+  left: 337px;
+  font-weight: 00;
+  color: #fff;
+  font-size: 28px;
+  display: inline-block;
+  width: 101px;
+  height: 42px;
+}
+.perfil-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0f0b38;
+  width: 4000px;
+  height: 130px;
+}
+.filmes,
+.reviews {
+  position: absolute;
+  top: 52px;
+  left: 859px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 18px;
+  display: inline-block;
+  width: 144px;
+  height: 82px;
+  &:hover {
+      color: #3f51b5;
+  }
+}
+.reviews {
+  left: 992px;
+  width: 163px;
+}
+.image-7-icon1 {
+  
+  position: absolute;
+  top: 0;
+  margin-left: 10px;
+  width: 190px;
+  height: 212px;
+  object-fit: cover;
+}
+.logo-icon{
+  position: absolute;
+  top: 0;
+  margin-left: 10px;
+  width: 190px;
+  height: 150px;
+  object-fit: cover;
+}
+.image-7-icon1 {
+  top: 6px;
+  left: 100px;
+  width: 59px;
+  height: 59px;
+}
+.heitor1 {
+  position: absolute;
+  top: 15px;
+  left: 190px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  width: 101px;
+  height: 42px;
+}
+.frame-child,
+.image-7-parent {
+  position: absolute;
+  overflow: hidden;
+}
+.frame-child {
+  top: 36px;
+  left: 230px;
+  width: 21px;
+  height: 13.58px;
+  object-fit: cover;
+}
+.image-7-parent {
+  top: 38px;
+  left: 1171px;
+  width: 241px;
+  height: 72px;
+  color: var(--color-gainsboro-100);
+}
+
+.background-container{
+  background-image: url('../../../../assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.topo{
+display:flex;
+justify-content: space-between;
+flex-direction: column;
+align-content: left;
+align-items: left;
+padding: 10rem;
+color: white;
+padding-bottom: 3px;
+padding-top: 120px;
+height: 10px
+}
+
+.title{
+color: #F5F5F5;
+font-family: Poppins;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: 500%;
+}
