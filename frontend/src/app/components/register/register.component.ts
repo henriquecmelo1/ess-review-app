@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Register } from '../../models/register';
 import { JwtAuth } from '../../models/jwtAuth';
 import { AuthService } from '../../services/auth.service'
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
