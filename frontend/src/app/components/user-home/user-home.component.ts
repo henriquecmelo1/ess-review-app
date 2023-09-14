@@ -11,10 +11,6 @@ export class UserHomeComponent implements OnInit{
   username: string | null = null;
   constructor(private authService: AuthService){}
   ngOnInit() {
-    this.authService.getUser().subscribe(
-      (userData: User) =>{
-        this.username = userData.username;
-      }
-    )
+
   }
 }
