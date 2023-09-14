@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service'
     styleUrls: ['./search.component.scss']
   })
   export class SearchComponent implements OnInit {
-    userSearch = new FormControl();
+    //userSearch = new FormControl();
     contentDto = new ContentModel();
 
   
