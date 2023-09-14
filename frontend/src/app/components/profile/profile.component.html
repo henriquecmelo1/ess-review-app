@@ -1,25 +1,24 @@
 <p>profile works!</p>
 <div>
-    You are logged in as <strong>{{ currentUser?.displayName }}</strong>
+    You are logged in as <strong></strong>
     <hr>
   </div>
   
-  <div *ngFor="let user of (users | async)">
-    <user-profile [user]="user" [currentUser]="currentUser"></user-profile>
+  <div>
   </div>
 
   <div class="profile">
-    <img [src]="user.img" width="50px">
-    @{{user.username}} has <strong>{{followerCount}}</strong> followers
-    <div *ngIf="isFollowing; then unfollowButton else followButton">
+    <img src="../../../assets/userIcon.png" width="50px">
+    <strong></strong> followers
+    <div>
         button renders here
     </div>
   </div>
   
   <ng-template #followButton>
-    <button class="button is-info" (click)="toggleFollow()">Follow</button>
+    <button class="button is-info" >Follow</button>
   </ng-template>
   
   <ng-template #unfollowButton>
-    <button class="button is-warning" (click)="toggleFollow()">Unfollow</button>
+    <button class="button is-warning" >Unfollow</button>
   </ng-template>
