@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Register } from 'src/app/models/register';
-import { JwtAuth } from 'src/app/models/jwtAuth';
-import { AuthService } from 'src/app/services/auth.service'
+import { Register } from '../../models/register';
+import { JwtAuth } from '../../models/jwtAuth';
+import { AuthService } from '../../services/auth.service'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
