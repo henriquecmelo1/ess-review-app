@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SearchComponent } from './components/search/search.component';
 import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -27,6 +28,7 @@ import { AuthInterceptor } from './services/interceptor';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    SearchComponent,
     CarouselComponent,
     ProfileComponent,
     UserHomeComponent,
@@ -60,7 +62,11 @@ import { AuthInterceptor } from './services/interceptor';
       },
       {
         path: 'profile/:id', component: ProfileComponent,
+      },
+      {
+        path: 'search', component: SearchComponent,
       }
+      
 
     ])
   ],
