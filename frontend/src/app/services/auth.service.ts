@@ -5,6 +5,7 @@ import { Register } from "../models/register";
 import { Observable, map } from "rxjs";
 import { JwtAuth } from "../models/jwtAuth";
 import { User } from '../models/userModel'
+import { Content } from "../models/content";
 
 @Injectable({
     providedIn: 'root'
@@ -24,4 +25,7 @@ export class AuthService{
     getUser(): Observable<User> {
         return this.http.get<User>('http://localhost:3000/users/me');
     }
-}
+    createContent(content: Content): Observable<Content>{
+        return this.http.post<Content>('http://localhost:3000/contents', content);
+    }
+}   
