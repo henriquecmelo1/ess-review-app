@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Search } from '../../models/search';
 
 @Component({
     selector: 'search',
     templateUrl: './search.component.html',
-    styleUrls: ['./search.component.css']
+    styleUrls: ['./search.component.scss']
   })
-  export class Search {
-    
+  export class SearchComponent {
+    userSearch = new Search();
   
-    constructor(){}
+    constructor(private router: Router){}
+
+    redirectToSignup(event: Event){
+      event.preventDefault();
+      this.router.navigate(['auth/signup']);
+    }
     redirectToSignin(event: Event){
       event.preventDefault();
-      //this.router.navigate(['auth/signin']);
+      this.router.navigate(['auth/signin']);
     }
-    // Register(registerDto: Register){
-    //   return this.authService.register(registerDto).subscribe((response) =>{
-    //     console.log('Usuário Criado com Sucesso', response);
-    //     this.router.navigate([''])
-    //   },
-    //   (error)=>{
-    //     console.error('Erro ao criar o usuário', error);
-    //   }
-    //   );
-    // }
+
+    redirectToSearch(event: Event){
+      event.preventDefault();
+      this.router.navigate(['search']);
+    }
+  
   }
