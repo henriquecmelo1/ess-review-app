@@ -1,0 +1,26 @@
+.slick-prev:before, .slick-next:before{
+    color: black !important;
+}
+
+.img-style{
+    margin-left: auto;
+    margin-right: auto;
+    height: 220px;
+    width: 220px;
+    display:flex;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.carousel-container{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+@media (max-width: 992) {
+    .img-style{
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+}

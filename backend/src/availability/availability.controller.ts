@@ -3,12 +3,11 @@ import { AvailabilityService } from './availability.service';
 
 @Controller('availability')
 export class AvailabilityController {
-  constructor(private readonly availabilityService: AvailabilityService) {}
+  constructor(private movieAvailabilityService: AvailabilityService) {}
 
-  @Get(':contentId')
-  async getAvailability(@Param('contentId') contentId: string) {
-    return this.availabilityService.getAvailabilityByContentId(contentId);
+  @Get()
+  async getMovieAvailability(@Param('title') title: string) {
+    const availability = await this.movieAvailabilityService.getMovieAvailabilityByTitle(title);
+    return { availability };
   }
 }
-
-

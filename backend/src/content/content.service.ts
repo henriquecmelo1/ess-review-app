@@ -33,28 +33,27 @@ export class ContentService {
         });
     }  
 
-    async removeContent(id: number) {
-      const Content = await this.prisma.content.findUnique({ where: { id } });
-      
+    async removeContent(userId: number, contentId: number) {
+      const Content = await this.prisma.content.findUnique({ where: { id: contentId } });
+  
       if (!Content) {
-        throw new NotFoundException(`Conteúdo com ID ${id} não encontrado`);
+        throw new NotFoundException(`Content with ID ${contentId} not found`);
       }
   
-      else {await this.prisma.content.delete({ where: { id } });
-      return { message: `Conteúdo com ID ${id} foi removido` };
-      }
+      await this.prisma.content.delete({ where: { id:contentId } });
+      return { message: `Content with ID ${contentId} has been removed` };
     }
 
-    async updateContent(id: number, updateData: UpdateContentDto) {
-        const existingContent = await this.prisma.content.findUnique({ where: { id } });
+    async updateContent(userId: number, contentId: number, dto: UpdateContentDto) {
+        const existingContent = await this.prisma.content.findUnique({ where: { id: contentId } });
       
         if (!existingContent) {
-          throw new NotFoundException(`Content with ID ${id} not found`);
+          throw new NotFoundException(`Content with ID ${contentId} not found`);
         }
       
         const updatedContent = await this.prisma.content.update({
-          where: { id },
-          data: updateData,
+          where: { id: contentId },
+          data: {...dto},
         });
       
         return updatedContent;

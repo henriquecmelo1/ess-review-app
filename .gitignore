@@ -1,6 +1,7 @@
 node_modules
 # Keep environment variables out of version control
 .env
+.env.test
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
