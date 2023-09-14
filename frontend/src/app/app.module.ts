@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from  '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { GaugeModule } from 'angular-gauge';
@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { AuthInterceptor } from './services/interceptor';
 
 @NgModule({
   declarations: [
@@ -56,10 +57,18 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
       },
       {
         path: 'home/:id', component: UserHomeComponent,
+      },
+      {
+        path: 'profile/:id', component: ProfileComponent,
       }
+
     ])
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
