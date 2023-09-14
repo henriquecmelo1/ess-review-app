@@ -2,9 +2,12 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Login } from "../models/login";
 import { Register } from "../models/register";
+import { ContentModel } from "../models/content";
 import { Observable, map } from "rxjs";
 import { JwtAuth } from "../models/jwtAuth";
 import { User } from '../models/userModel'
+
+
 
 @Injectable({
     providedIn: 'root'
@@ -24,4 +27,8 @@ export class AuthService{
     getUser(): Observable<User> {
         return this.http.get<User>('http://localhost:3000/users/me');
     }
+    getMovie(): Observable<ContentModel>{
+        return this.http.get<ContentModel>('http://localhost:3000/contents');
+    }
+    
 }
