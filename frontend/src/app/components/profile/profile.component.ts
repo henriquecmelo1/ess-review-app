@@ -3,22 +3,25 @@ import { User } from '@prisma/client';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { UserService } from '../../services/user.service';
+import { Content } from '../../models/content';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit{
   @Input() user: User = {} as User; // O usuário que pode ser seguido
   @Input() currentUser: User = {} as User; // usuário logado
-
+  followingCount$: Observable<number> = of(0);
   followerCount$: Observable<number> = of(0);
   isFollowing$: Observable<boolean> = of(false);
   followers$: Observable<User[]> = of([]);
   following$: Observable<User[]> = of([]);
+  contentDto = new Content();
 
-  constructor(private userService: UserService) {}
-
+  constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
   ngOnInit() {
     const userId = this.user.id;
     const currentUserId = this.currentUser.id;
@@ -33,6 +36,10 @@ export class ProfileComponent implements OnInit {
       this.followerCount$ = of(count);
     });
 
+    this.userService.getFollowingCount(currentUserId).subscribe((count: number) => {
+      this.followingCount$ = of(count);
+    });
+
     // Recupera os seguidores do usuário.
     this.userService.getFollowers(currentUserId).subscribe((followers: User[]) => {
       this.followers$ = of(followers);
@@ -42,8 +49,15 @@ export class ProfileComponent implements OnInit {
     this.userService.getFollowing(currentUserId).subscribe((following: User[]) => {
       this.following$ = of(following);
     });
+
+    
   }
 
+  get followButtonLabel(): Observable<string> {
+    return this.isFollowing$.pipe(
+      map(isFollowing => (isFollowing ? 'Parar de seguir' : 'Seguir'))
+    );
+  }
   toggleFollow() {
     const userId = this.user.id;
     const currentUserId = this.currentUser.id;
@@ -62,6 +76,14 @@ export class ProfileComponent implements OnInit {
           this.followerCount$ = this.followerCount$.pipe(map(count => count + 1));
         });
       }
-    });
+      
+    })}
+    
+  Content(contentDto: Content){
+    return this.authService.createContent(contentDto).subscribe()
+  }
+  redirectToHome(event: Event){
+    event.preventDefault();
+    this.router.navigate(['/']);
   }
 }
