@@ -1,0 +1,256 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-poppins: Poppins;
+  
+    /* font sizes */
+    --font-size-21xl: 40px;
+    --font-size-5xl: 24px;
+    --font-size-13xl: 32px;
+  
+    /* Colors */
+    --color-whitesmoke: #f5f5f5;
+    --color-black: #000;
+    --color-gainsboro: #d8e0e8;
+  }
+  
+  .background-container{
+    background-image: url('../../../assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+.frame-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #0f0b38;
+    width: 1440px;
+    height: 148px;
+  }
+  .filmes,
+  .reviews {
+    position: absolute;
+    top: 52px;
+    left: 799px;
+    font-weight: 600;
+    display: inline-block;
+    width: 144px;
+    height: 82px;
+  }
+  .reviews {
+    left: 992px;
+    width: 163px;
+  }
+  .d83a0f7001c423f928d720956ff129-icon,
+  .image-7-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 411px;
+    height: 212px;
+    object-fit: cover;
+  }
+  .image-7-icon {
+    top: 6px;
+    left: 14px;
+    width: 59px;
+    height: 59px;
+  }
+  .heitor {
+    position: absolute;
+    top: 15px;
+    left: 91px;
+    font-weight: 600;
+    display: inline-block;
+    width: 101px;
+    height: 42px;
+  }
+  .frame-item,
+  .image-7-parent {
+    position: absolute;
+    overflow: hidden;
+  }
+  .frame-item {
+    top: 36px;
+    left: 201px;
+    width: 21px;
+    height: 13.58px;
+    object-fit: cover;
+  }
+  .image-7-parent {
+    top: 38px;
+    left: 1171px;
+    width: 241px;
+    height: 72px;
+  }
+  .component-2-child {
+    position: absolute;
+    height: 66.67%;
+    width: 100%;
+    top: 33.33%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2.5px solid #d2d2d2;
+    box-sizing: border-box;
+  }
+  .enter-your-name {
+    position: absolute;
+    top: 50.48%;
+    left: 5%;
+  }
+  .name,
+  .vector-icon {
+    position: absolute;
+    display: none;
+  }
+  .name {
+    width: 50%;
+    top: -2.86%;
+    left: 0;
+    font-size: var(--font-size-5xl);
+  }
+  .vector-icon {
+    height: 19.05%;
+    width: 5.21%;
+    top: 57.14%;
+    right: 3.75%;
+    bottom: 23.81%;
+    left: 91.04%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .component-2 {
+    position: absolute;
+    top: 166px;
+    left: 156px;
+    width: 1177px;
+    height: 105px;
+    font-size: 28px;
+    color: var(--color-black);
+  }
+  .image-10-icon {
+    position: absolute;
+    top: 213px;
+    left: 1269px;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    opacity: 0.5;
+    mix-blend-mode: luminosity;
+  }
+  .frame {
+    position: relative;
+    width: 1440px;
+    height: 309px;
+    overflow: hidden;
+    flex-shrink: 0;
+    color: var(--color-gainsboro);
+  }
+  .frame-inner {
+    position: absolute;
+    top: 23.07px;
+    left: 17px;
+    background: linear-gradient(
+      90deg,
+      rgba(32, 27, 87, 0.76),
+      rgba(32, 27, 87, 0)
+    );
+    width: 1252px;
+    height: 210px;
+  }
+  .image-11-icon {
+    position: absolute;
+    top: 43px;
+    left: 45px;
+    width: 132px;
+    height: 179.93px;
+    object-fit: cover;
+  }
+  .disponvel-no-hbo,
+  .harry-potter-e {
+    position: absolute;
+    top: 53px;
+    left: 232px;
+    font-weight: 600;
+  }
+  .disponvel-no-hbo {
+    top: 133px;
+    left: 389px;
+    font-size: var(--font-size-5xl);
+  }
+  .image-12-icon {
+    position: absolute;
+    top: 72px;
+    left: 1136px;
+    width: 98px;
+    height: 98px;
+    object-fit: cover;
+  }
+  .rectangle-parent {
+    position: relative;
+    width: 1286px;
+    height: 256px;
+    overflow: hidden;
+    flex-shrink: 0;
+    font-size: var(--font-size-21xl);
+  }
+  .disponvel-no-hbo1,
+  .harry-potter-e1 {
+    position: absolute;
+    top: 133px;
+    left: 389px;
+    font-weight: 600;
+  }
+  .harry-potter-e1 {
+    top: 42px;
+    left: 232px;
+    font-size: var(--font-size-21xl);
+  }
+  .image-13-icon {
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    width: 132px;
+    height: 185.18px;
+    object-fit: cover;
+  }
+  .busca,
+  .rectangle-group {
+    position: relative;
+    overflow: hidden;
+  }
+  .rectangle-group {
+    width: 1286px;
+    height: 256px;
+    flex-shrink: 0;
+    font-size: var(--font-size-5xl);
+  }
+  .busca {
+    width: 100%;
+    height: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: url(./public/busca@3x.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    text-align: left;
+    font-size: var(--font-size-13xl);
+    color: var(--color-whitesmoke);
+    font-family: var(--font-poppins);
+  }
+  

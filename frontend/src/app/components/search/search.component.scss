@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .home {
     &-container {
       width: 100%;
@@ -22,8 +21,9 @@
         flex-shrink: 0;
     }
 }
+
 .options {
-    margin-left: 500px;
+    margin-left: 180px;
   }
   
   .option {
@@ -49,35 +49,4 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-}
-
-.topo{
-    display:flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    padding: 10rem;
-    color: white;
-    padding-bottom: 3px;
-    padding-top: 120px;
-}
-.title{
-    color: #F5F5F5;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.user-icon {
-    margin-top: 10px;
-    img {
-        width: 40px; /* Ajuste o tamanho da sua logo conforme necessário */
-        height: 40px;
-        flex-shrink: 0;
-    }
-    p{
-        color: white;
-    }
 }

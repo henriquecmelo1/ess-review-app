@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from  '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { GaugeModule } from 'angular-gauge';
@@ -15,11 +15,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SearchComponent } from './components/search/search.component';
 import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { EditContentComponent } from './components/edit-content/edit-content.component';
+import { AuthInterceptor } from './services/interceptor';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { EditContentComponent } from './components/edit-content/edit-content.com
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    SearchComponent,
     CarouselComponent,
     ProfileComponent,
     UserHomeComponent,
@@ -61,10 +65,20 @@ import { EditContentComponent } from './components/edit-content/edit-content.com
       },
       {
         path: 'edit', component: EditContentComponent,
+      },
+      {
+        path: 'profile/:id', component: ProfileComponent,
+      },
+      {
+        path: 'search', component: SearchComponent,
       }
     ])
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

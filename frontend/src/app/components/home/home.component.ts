@@ -31,4 +31,8 @@ export class HomeComponent {
     event.preventDefault();
     this.router.navigate(['auth/signin']);
   }
+  redirectToSearch(event: Event){
+    event.preventDefault();
+    this.router.navigate(['search']);
+  }
 }
