@@ -21,7 +21,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { AuthInterceptor } from './services/interceptor';
-
+import { FollowersListComponent } from './components/followerlist/follower-list.component';
+import { FollowingListComponent } from './components/followinglist/following-list.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import { AuthInterceptor } from './services/interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
     RouterModule.forRoot([
       {
         path:'', component :HomeComponent,
@@ -61,13 +64,17 @@ import { AuthInterceptor } from './services/interceptor';
         path: 'home/:id', component: UserHomeComponent,
       },
       {
-        path: 'profile/:id', component: ProfileComponent,
+        path: 'profile', component: ProfileComponent,
       },
       {
         path: 'search', component: SearchComponent,
-      }
-      
-
+      },
+      {
+        path: 'following', component: FollowingListComponent,
+      },
+      {
+        path: 'followers', component: FollowersListComponent,
+      },
     ])
   ],
   providers: [{
