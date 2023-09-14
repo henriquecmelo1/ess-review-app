@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Search } from '../../models/search';
 import { ContentModel } from '../../models/content';
 import { FormControl} from '@angular/forms';
 import { AuthService } from '../../services/auth.service'
@@ -23,7 +22,7 @@ import { AuthService } from '../../services/auth.service'
         })
     }
 
-    
+
     
 
 
