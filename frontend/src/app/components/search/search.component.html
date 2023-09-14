@@ -28,5 +28,12 @@
       <button class="lupa" (click)="ngOnInit()">PESQUISAR</button>
       
     </div>
+
+    <div class="movie-details" *ngIf="contentDto">
+      <h2>Title: {{ contentDto.title }}</h2>
+      <p>Director: {{ contentDto.director }}</p>
+      <p>Genre: {{ contentDto.genre }}</p>
+      <p>Duration: {{ contentDto.duration }}</p>
+    </div>
   </div>
   
