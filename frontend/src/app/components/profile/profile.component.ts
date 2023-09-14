@@ -3,7 +3,7 @@ import { User } from '@prisma/client';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { UserService } from '../../services/user.service';
-import { Content } from '../../models/content';
+import { ContentModel } from '../../models/content';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 @Component({
@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit{
   isFollowing$: Observable<boolean> = of(false);
   followers$: Observable<User[]> = of([]);
   following$: Observable<User[]> = of([]);
-  contentDto = new Content();
+  contentDto = new ContentModel();
 
   constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
   ngOnInit() {
@@ -79,7 +79,7 @@ export class ProfileComponent implements OnInit{
       
     })}
     
-  Content(contentDto: Content){
+  Content(contentDto: ContentModel){
     return this.authService.createContent(contentDto).subscribe()
   }
   redirectToHome(event: Event){
