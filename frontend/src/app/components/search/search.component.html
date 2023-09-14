@@ -18,14 +18,17 @@
     </nav>
   </header>
   <div class="centralizar">
-    <div class="divBusca">      
-      <input 
-        type="text"
-        class = "textoBusca"
-        placeholder="Buscar..." 
-        [(ngModel)] = "userSearch"
-      />
-      <button class="lupa" (click)="ngOnInit()">PESQUISAR</button>
+    <div class="divBusca"> 
+      <form>
+        <input 
+          type="text"
+          class = "textoBusca"
+          placeholder="Buscar..." 
+          [(ngModel)] = "contentDto.title"
+        />
+        <button class="lupa" (click)="ngOnInit()">PESQUISAR</button>
+      </form>     
+      
       
     </div>
 

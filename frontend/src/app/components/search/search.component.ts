@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service'
     styleUrls: ['./search.component.scss']
   })
   export class SearchComponent implements OnInit {
-    userSearch = new FormControl();
+    //userSearch = new FormControl();
     contentDto = new ContentModel();
 
   
@@ -21,14 +21,6 @@ import { AuthService } from '../../services/auth.service'
           this.contentDto = data;
         })
     }
-
-
-    
-
-
-
-
-
     redirectToSignup(event: Event){
       event.preventDefault();
       this.router.navigate(['auth/signup']);
