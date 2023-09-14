@@ -58,6 +58,9 @@ import { EditContentComponent } from './components/edit-content/edit-content.com
       },
       {
         path: 'home/:id', component: UserHomeComponent,
+      },
+      {
+        path: 'edit', component: EditContentComponent,
       }
     ])
   ],

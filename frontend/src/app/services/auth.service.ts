@@ -4,6 +4,7 @@ import { Login } from "../models/login";
 import { Register } from "../models/register";
 import { Observable, map } from "rxjs";
 import { JwtAuth } from "../models/jwtAuth";
+import { ContentModel } from "../models/content";
 
 @Injectable({
     providedIn: 'root'
@@ -21,4 +22,7 @@ export class AuthService{
         return this.http.post<JwtAuth>('http://localhost:3000/auth/signin', user)
     }
 
+    public editContent(content: ContentModel): Observable<ContentModel>{
+        return this.http.patch<ContentModel>('http://localhost:3000/contents', content)
+    }
 }
