@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { User } from '@prisma/client';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { UserService } from 'app/services/user.service';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   @Input() user: User = {} as User; // O usuário que pode ser seguido

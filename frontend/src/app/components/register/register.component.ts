@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Register } from '../../models/register';
 import { JwtAuth } from '../../models/jwtAuth';
 import { AuthService } from '../../services/auth.service'
@@ -13,19 +12,20 @@ export class RegisterComponent {
   registerDto = new Register();
   jwtDto = new JwtAuth();
 
-  constructor(private router: Router, private authService: AuthService, private bsModalService: BsModalService){}
+  constructor(private router: Router, private authService: AuthService){}
   redirectToSignin(event: Event){
     event.preventDefault();
     this.router.navigate(['auth/signin']);
   }
   Register(registerDto: Register){
-    return this.authService.register(registerDto).subscribe((response) =>{
-      console.log('Usuário Criado com Sucesso', response);
-      this.router.navigate([''])
-    },
-    (error)=>{
-      console.error('Erro ao criar o usuário', error);
-    }
-    );
+    return this.authService.register(registerDto).subscribe({
+      next: (response: JwtAuth) =>{
+        console.log('Usuário Criado com Sucesso', response);
+        this.router.navigate(['auth/signin'])
+      },
+      error: (error: any)=>{
+       console.error('Erro ao criar o usuário', error);
+      }
+    });
   }
 }

@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit{
   }
   Login(loginDto: Login){
     this.authService.login(loginDto).subscribe((jwtDto)=>{
-      localStorage.setItem('jwtToken', this.jwtDto.token);
+      localStorage.setItem('jwtToken', jwtDto.token);
+       this.router.navigate(['/home', 7]);
+
     });
   }
   redirectToSignup(event: Event){
