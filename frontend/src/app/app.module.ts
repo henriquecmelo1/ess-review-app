@@ -64,7 +64,7 @@ import { AuthInterceptor } from './services/interceptor';
         path: 'home/:id', component: UserHomeComponent,
       },
       {
-        path: 'edit', component: EditContentComponent,
+        path: 'edit/:id', component: EditContentComponent,
       },
       {
         path: 'profile/:id', component: ProfileComponent,
