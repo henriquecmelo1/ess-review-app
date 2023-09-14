@@ -42,6 +42,7 @@ CREATE TABLE "Content" (
     "duration" INTEGER NOT NULL,
     "genre" TEXT NOT NULL,
     "director" TEXT NOT NULL,
+    "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Content_pkey" PRIMARY KEY ("id")
 );
@@ -57,7 +58,7 @@ CREATE TABLE "Availability" (
 );
 
 -- CreateTable
-CREATE TABLE "_Friendship" (
+CREATE TABLE "_Relationship" (
     "A" INTEGER NOT NULL,
     "B" INTEGER NOT NULL
 );
@@ -66,10 +67,10 @@ CREATE TABLE "_Friendship" (
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "_Friendship_AB_unique" ON "_Friendship"("A", "B");
+CREATE UNIQUE INDEX "_Relationship_AB_unique" ON "_Relationship"("A", "B");
 
 -- CreateIndex
-CREATE INDEX "_Friendship_B_index" ON "_Friendship"("B");
+CREATE INDEX "_Relationship_B_index" ON "_Relationship"("B");
 
 -- AddForeignKey
 ALTER TABLE "WatchedMovie" ADD CONSTRAINT "WatchedMovie_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -81,10 +82,13 @@ ALTER TABLE "Review" ADD CONSTRAINT "Review_userId_fkey" FOREIGN KEY ("userId") 
 ALTER TABLE "Review" ADD CONSTRAINT "Review_contentId_fkey" FOREIGN KEY ("contentId") REFERENCES "Content"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE "Content" ADD CONSTRAINT "Content_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE "Availability" ADD CONSTRAINT "Availability_contentId_fkey" FOREIGN KEY ("contentId") REFERENCES "Content"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_Friendship" ADD CONSTRAINT "_Friendship_A_fkey" FOREIGN KEY ("A") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_Relationship" ADD CONSTRAINT "_Relationship_A_fkey" FOREIGN KEY ("A") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_Friendship" ADD CONSTRAINT "_Friendship_B_fkey" FOREIGN KEY ("B") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_Relationship" ADD CONSTRAINT "_Relationship_B_fkey" FOREIGN KEY ("B") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
