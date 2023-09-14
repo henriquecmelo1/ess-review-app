@@ -21,14 +21,6 @@ import { AuthService } from '../../services/auth.service'
           this.contentDto = data;
         })
     }
-
-
-    
-
-
-
-
-
     redirectToSignup(event: Event){
       event.preventDefault();
       this.router.navigate(['auth/signup']);
