@@ -7,29 +7,29 @@
         </section>
     </div>
     <div class="right">
-        <form >
-            <section class="copy">
-                <h2>Cadastrar</h2>
-                <div class="login-container">
-                    <p>Ja tem uma conta?<a href="#" href="#" (click)="redirectToSignin($event)"><strong> Entrar</strong></a></p>
+            <form >
+                <section class="copy">
+                    <h2>Cadastrar</h2>
+                    <div class="login-container">
+                        <p>Ja tem uma conta?<a href="#" href="#" (click)="redirectToSignin($event)"><strong> Entrar</strong></a></p>
+                    </div>
+                </section>
+                <div class="input-container name">
+                    <label for="fname">Username</label>
+                    <input [(ngModel)]="registerDto.username" type="text" name="fname" id="fname">     
                 </div>
-            </section>
-            <div class="input-container name">
-                <label for="fname">Username</label>
-                <input [(ngModel)]="registerDto.username" type="text" name="fname" id="fname">     
-            </div>
-            <div class="input-container email">
-                <label for="fname">Email</label>
-                <input [(ngModel)]="registerDto.email" type="email" name="email" id="email">     
-            </div>
-            <div class="input-container password">
-                <label for="fname">Senha</label>
-                <input [(ngModel)]="registerDto.password"  type="password" name="password" id="password">     
-                <i class="far fa-eye-slash"></i>
-            </div>
-            <div class="input-container cta">
-            </div>
-            <button (click)="Register(registerDto)" class="signup-btn" type="submit">Cadastrar</button>
-        </form>
+                <div class="input-container email">
+                    <label for="fname">Email</label>
+                    <input [(ngModel)]="registerDto.email" type="email" name="email" id="email">     
+                </div>
+                <div class="input-container password">
+                    <label for="fname">Senha</label>
+                    <input [(ngModel)]="registerDto.password"  type="password" name="password" id="password">     
+                    <i class="far fa-eye-slash"></i>
+                </div>
+                <div class="input-container cta">
+                </div>
+                <button (click)="registerUser()" class="signup-btn" type="submit">Cadastrar</button>
+            </form>
     </div>
 </div>

@@ -4,7 +4,6 @@ import { Login } from "../models/login";
 import { Register } from "../models/register";
 import { ContentModel } from "../models/content";
 import { Observable, map } from "rxjs";
-import { JwtAuth } from "../models/jwtAuth";
 import { User } from '../models/userModel'
 
 
@@ -16,12 +15,16 @@ export class AuthService{
     loginUrl = "auth/signin";
     constructor(private http: HttpClient){}
 
-    public register(user: Register): Observable<JwtAuth>{
-        return this.http.post<JwtAuth>('http://localhost:3000/auth/signup', user)
+    public registerUser(user: Register){
+        return this.http.post<any>('http://localhost:3000/auth/signup', user)
     }
     
-    public login(user: Login): Observable<JwtAuth>{
-        return this.http.post<JwtAuth>('http://localhost:3000/auth/signin', user)
+    public loginUser(user: Login){
+        return this.http.post<any>('http://localhost:3000/auth/signin', user)
+    }
+
+    public getLoggedInUser(): Observable<User>{
+        return this.http.get<User>('http://localhost:3000/users/me') 
     }
   
     public editContent(content: ContentModel): Observable<ContentModel>{
@@ -31,9 +34,7 @@ export class AuthService{
     public removeContent(content: ContentModel): Observable<ContentModel>{
         return this.http.delete<ContentModel>('http://localhost:3000/contents')
     }
-    getUser(): Observable<User> {
-        return this.http.get<User>('http://localhost:3000/users/me');
-    }
+
     createContent(content: ContentModel): Observable<ContentModel>{
         return this.http.post<ContentModel>('http://localhost:3000/contents', content);
     }

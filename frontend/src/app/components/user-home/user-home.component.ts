@@ -8,10 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-home.component.scss']
 })
 export class UserHomeComponent implements OnInit{
-  username: string | null = null;
+  loggedInUser: User | null = null;
   constructor(private authService: AuthService, private router: Router){}
   ngOnInit() {
-
+    this.authService.getLoggedInUser().subscribe({
+      next: (user: User) => {
+        this.loggedInUser = user;
+        console.log(this.loggedInUser)
+      },
+      error: (error) => {
+        console.error('Erro ao obter os dados do usuário logado:', error);
+      },
+    });
   }
   redirectToProfile(event: Event){
     event.preventDefault();

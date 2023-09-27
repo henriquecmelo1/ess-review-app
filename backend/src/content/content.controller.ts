@@ -1,9 +1,8 @@
 import { Controller, Delete, Param, Patch, Body, UseGuards, Get, Post, ParseIntPipe } from '@nestjs/common';
 import { ContentService } from './content.service';
 import { UpdateContentDto, CreateContentDto } from './dto';
-import { JwtGuard } from '../auth/guard';
 import { GetUser } from '../auth/decorator';
-@UseGuards(JwtGuard)
+
 @Controller('contents')
 export class ContentController {
     constructor(private contentService: ContentService) {}

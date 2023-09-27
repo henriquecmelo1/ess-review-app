@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Login } from '../../models/login';
-import { JwtAuth } from '../../models/jwtAuth';
-import { User } from '../../models/userModel';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,21 +9,21 @@ import { User } from '../../models/userModel';
 })
 export class LoginComponent implements OnInit{
   loginDto = new Login();
-  jwtDto = new JwtAuth();
+  
   constructor(private router: Router, private authService: AuthService){}
-  user: User | undefined;
-  ngOnInit(): void {
+  
+  ngOnInit(){
     
   }
-  Login(loginDto: Login){
-    this.authService.login(loginDto).subscribe({
-      next: (jwtDto) =>{
-        localStorage.setItem('jwtToken', jwtDto.token);
-        this.router.navigate(['home', 1])
+
+  loginUser(){
+    this.authService.loginUser(this.loginDto)
+    .subscribe({
+      next: (res: any) => {
+        console.log(res)
+        this.router.navigate(['home', res.user.id])
       },
-      error: (error) =>{
-        console.error('Erro ao fazer login', error);
-      },
+      error: err => console.error(err), 
     });
   }
     

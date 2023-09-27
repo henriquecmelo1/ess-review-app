@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from  '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { GaugeModule } from 'angular-gauge';
@@ -21,11 +21,11 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { EditContentComponent } from './components/edit-content/edit-content.component';
-import { AuthInterceptor } from './services/interceptor';
 
 import { FollowersListComponent } from './components/followerlist/follower-list.component';
 import { FollowingListComponent } from './components/followinglist/following-list.component';
 import { CommonModule } from '@angular/common';
+import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,11 +86,7 @@ import { CommonModule } from '@angular/common';
       },
     ])
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

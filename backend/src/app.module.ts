@@ -4,7 +4,8 @@ import { ContentModule } from './content/content.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { PassportModule } from '@nestjs/passport';
 @Module({
-  imports: [ConfigModule.forRoot({isGlobal: true}), UserModule, ContentModule, PrismaModule, AuthModule],
+  imports: [ConfigModule.forRoot({isGlobal: true}), UserModule, ContentModule, PrismaModule, AuthModule, PassportModule],
 })
 export class AppModule {}
