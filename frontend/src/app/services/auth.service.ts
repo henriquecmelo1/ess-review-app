@@ -4,11 +4,10 @@ import { Login } from "../models/login";
 import { Register } from "../models/register";
 import { ContentModel } from "../models/content";
 import { Observable, map } from "rxjs";
-import { JwtAuth } from "../models/jwtAuth";
 import { User } from '../models/userModel'
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { tap } from 'rxjs/operators';
-
+import { JwtAuth } from "../../app/models/jwtAuth";
 @Injectable({
     providedIn: 'root'
 })
@@ -18,8 +17,8 @@ export class AuthService{
     private jwtHelper = new JwtHelperService;
     constructor(private http: HttpClient){}
 
-    public register(user: Register): Observable<JwtAuth>{
-        return this.http.post<JwtAuth>('http://localhost:3000/auth/signup', user)
+    public registerUser(user: Register){
+        return this.http.post<any>('http://localhost:3000/auth/signup', user)
     }
     
     public login(loginDto: Login): Observable<JwtAuth> {

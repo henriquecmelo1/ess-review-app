@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-home.component.scss']
 })
 export class UserHomeComponent implements OnInit{
+  loggedInUser: User | null = null;
   username: string | null = null;
   constructor(private authService: AuthService, private router: Router){}
   ngOnInit() {
