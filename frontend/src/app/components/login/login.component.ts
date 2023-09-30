@@ -20,8 +20,19 @@ export class LoginComponent implements OnInit{
   Login(loginDto: Login){
     this.authService.login(loginDto).subscribe({
       next: (jwtDto) =>{
-        localStorage.setItem('jwtToken', jwtDto.token);
-        this.router.navigate(['home', 1])
+        localStorage.setItem('jwtToken', jwtDto.access_token);
+        const storedToken = localStorage.getItem('jwtToken');
+        console.log('Token armazenado:', storedToken);
+        this.authService.getUserData().subscribe({
+          next: (user) => {
+            this.user = user;
+            console.log('Detalhes do usuário', this.user)
+            this.router.navigate(['home', this.user.id])
+          },
+          error: (error) =>{
+            console.error("Erro ao obter os dados do usuário", error)
+          }
+        })
       },
       error: (error) =>{
         console.error('Erro ao fazer login', error);

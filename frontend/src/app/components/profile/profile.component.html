@@ -18,11 +18,12 @@
       <div class="content">
         <div class="icon">
           <img src="../../../assets/userIcon.png">
-          <p>HEITOR</p>
+          <p>{{username}}</p>
         </div>
-        <button class="create-content-btn" type="submit">Adicionar Filme</button>
+        <button (click)="redirectToCreateContent($event)" class="create-content-btn" type="submit">Adicionar Filme</button>
         <button class="edit-content-btn" type="submit">Editar Conta</button>
         <button class="remove-content-btn" type="submit">Remover Conta</button>
+        
 
       </div>
 </div>

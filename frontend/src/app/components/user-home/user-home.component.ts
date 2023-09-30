@@ -11,10 +11,32 @@ export class UserHomeComponent implements OnInit{
   username: string | null = null;
   constructor(private authService: AuthService, private router: Router){}
   ngOnInit() {
-
+    this.authService.getUserData().subscribe({
+      next: (user) =>{
+        this.username = user.username;
+      },
+      error: (error) =>{
+        console.error("Erro ao obter o usuário", error);
+      }
+    })
   }
   redirectToProfile(event: Event){
     event.preventDefault();
     this.router.navigate(['profile']);
+  }
+  
+  redirectToHome(event: Event){
+    event.preventDefault();
+    this.router.navigate(['/']);
+  }
+
+  redirectToFilms(event: Event){
+    event.preventDefault();
+    this.router.navigate(['profile']);
+  }
+  logout() {
+    localStorage.removeItem('jwtToken');
+  
+    this.router.navigate(['home']);
   }
 }

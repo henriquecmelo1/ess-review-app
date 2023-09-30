@@ -20,11 +20,23 @@ export class ProfileComponent implements OnInit{
   followers$: Observable<User[]> = of([]);
   following$: Observable<User[]> = of([]);
   contentDto = new ContentModel();
+  username: string | null = null;
+  email: string | null = null;
 
   constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
   ngOnInit() {
     const userId = this.user.id;
     const currentUserId = this.currentUser.id;
+
+    this.authService.getUserData().subscribe({
+      next: (user) =>{
+        this.username = user.username;
+        this.email = user.email
+      },
+      error: (error) =>{
+        console.error("Erro ao obter o usuário", error);
+      }
+    })
 
     // Verifica se o usuário atualmente logado está seguindo este usuário.
     this.userService.isFollowing(currentUserId, userId).subscribe((isFollowing: boolean) => {
@@ -85,5 +97,9 @@ export class ProfileComponent implements OnInit{
   redirectToHome(event: Event){
     event.preventDefault();
     this.router.navigate(['/']);
+  }
+  redirectToCreateContent(event: Event){
+    event.preventDefault();
+    this.router.navigate(['create-content']);
   }
 }

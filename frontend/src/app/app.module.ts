@@ -26,6 +26,7 @@ import { AuthInterceptor } from './services/interceptor';
 import { FollowersListComponent } from './components/followerlist/follower-list.component';
 import { FollowingListComponent } from './components/followinglist/following-list.component';
 import { CommonModule } from '@angular/common';
+import { CreateContentComponent } from './components/create-content/create-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { CommonModule } from '@angular/common';
     ProfileComponent,
     UserHomeComponent,
     EditContentComponent,
+    CreateContentComponent,
   ],
   imports: [
     SlickCarouselModule,
@@ -83,6 +85,9 @@ import { CommonModule } from '@angular/common';
       },
       {
         path: 'edit', component: EditContentComponent,
+      },
+      {
+        path: 'create-content', component: CreateContentComponent,
       },
     ])
   ],

@@ -6,7 +6,8 @@ import { ContentModel } from "../models/content";
 import { Observable, map } from "rxjs";
 import { JwtAuth } from "../models/jwtAuth";
 import { User } from '../models/userModel'
-
+import { JwtHelperService } from "@auth0/angular-jwt";
+import { tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -14,15 +15,22 @@ import { User } from '../models/userModel'
 export class AuthService{
     registerUrl = "auth/signup";
     loginUrl = "auth/signin";
+    private jwtHelper = new JwtHelperService;
     constructor(private http: HttpClient){}
 
     public register(user: Register): Observable<JwtAuth>{
         return this.http.post<JwtAuth>('http://localhost:3000/auth/signup', user)
     }
     
-    public login(user: Login): Observable<JwtAuth>{
-        return this.http.post<JwtAuth>('http://localhost:3000/auth/signin', user)
-    }
+    public login(loginDto: Login): Observable<JwtAuth> {
+        return this.http.post<JwtAuth>('http://localhost:3000/auth/signin', loginDto)
+          .pipe(
+            tap((response) => {
+              const token = response.access_token;
+              console.log('Token no auth service:', token)
+            })
+          );
+      }
   
     public editContent(content: ContentModel): Observable<ContentModel>{
         return this.http.patch<ContentModel>('http://localhost:3000/contents', content)
@@ -31,9 +39,12 @@ export class AuthService{
     public removeContent(content: ContentModel): Observable<ContentModel>{
         return this.http.delete<ContentModel>('http://localhost:3000/contents')
     }
-    getUser(): Observable<User> {
-        return this.http.get<User>('http://localhost:3000/users/me');
+    
+    getUserData(): Observable<User> {
+        const token = localStorage.getItem('jwtToken')
+        return this.http.get<User>('http://localhost:3000/users/me')
     }
+
     createContent(content: ContentModel): Observable<ContentModel>{
         return this.http.post<ContentModel>('http://localhost:3000/contents', content);
     }

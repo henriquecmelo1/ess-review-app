@@ -23,7 +23,7 @@
     }
 }
 .options {
-    margin-left: 500px;
+    margin-left: 320px;
   }
   
   .option {
@@ -70,14 +70,80 @@
     font-weight: 600;
     line-height: normal;
 }
-.user-icon {
-    margin-top: 10px;
-    img {
-        width: 40px; /* Ajuste o tamanho da sua logo conforme necessário */
-        height: 40px;
-        flex-shrink: 0;
-    }
-    p{
-        color: white;
-    }
-}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-btn {
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    background: #0F0B38;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    color: #D8E0E8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    position: relative;
+  }
+  .dropdown-btn img {
+    width: 38px; /* Ajuste o tamanho conforme necessário */
+    height: 38px;
+    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+  }
+  
+  .arrow {
+    margin-left: 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #D8E0E8;
+    transition: transform ease-in-out 0.3s;
+  }
+  
+  .dropdown-content {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 150%;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  
+  .dropdown-content li {
+    background: #0F0B38;
+    border-radius: 0.5em;
+    position: relative;
+    left: 0;
+    transition: 0.5s;
+  }
+  
+  .dropdown-content li:hover {
+    background: #1d1f24;
+  }
+  
+  .dropdown-content li a {
+    display: block;
+    padding: 0.7em 0.5em;
+    color: #D8E0E8;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    margin: 0.1em 0;
+    text-decoration: none;
+  }
+  
+  /* Mostrar a lista quando o botão está em foco */
+  .dropdown-btn:focus + .dropdown-content {
+    visibility: visible;
+  }
+  
