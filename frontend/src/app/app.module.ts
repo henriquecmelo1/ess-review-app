@@ -28,6 +28,7 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateContentComponent } from './components/create-content/create-content.component';
 import { AuthInterceptor } from './services/interceptor';
+import { MoviesComponent } from './components/movies/movies.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { AuthInterceptor } from './services/interceptor';
     UserHomeComponent,
     EditContentComponent,
     CreateContentComponent,
+    MoviesComponent,
   ],
   imports: [
     SlickCarouselModule,
@@ -89,6 +91,9 @@ import { AuthInterceptor } from './services/interceptor';
       },
       {
         path: 'create-content', component: CreateContentComponent,
+      },
+      {
+        path: 'movies', component: MoviesComponent,
       },
     ])
   ],

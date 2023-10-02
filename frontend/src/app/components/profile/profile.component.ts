@@ -102,4 +102,10 @@ export class ProfileComponent implements OnInit{
     event.preventDefault();
     this.router.navigate(['create-content']);
   }
+  
+  logout() {
+    localStorage.removeItem('jwtToken');
+  
+    this.router.navigate(['home']);
+  }
 }

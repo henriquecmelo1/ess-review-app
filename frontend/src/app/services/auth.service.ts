@@ -31,7 +31,11 @@ export class AuthService{
             })
           );
       }
-  
+
+    public createContent(content: ContentModel): Observable<ContentModel>{
+        return this.http.post<ContentModel>('http://localhost:3000/contents', content);
+    }
+ 
     public editContent(content: ContentModel): Observable<ContentModel>{
         return this.http.patch<ContentModel>('http://localhost:3000/contents', content)
     }
@@ -45,10 +49,6 @@ export class AuthService{
         return this.http.get<User>('http://localhost:3000/users/me')
     }
 
-    createContent(content: ContentModel): Observable<ContentModel>{
-        return this.http.post<ContentModel>('http://localhost:3000/contents', content);
-    }
- 
     getMovie(): Observable<ContentModel>{
         return this.http.get<ContentModel>('http://localhost:3000/contents');
     }
