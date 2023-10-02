@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit{
   contentDto = new ContentModel();
   username: string | null = null;
   email: string | null = null;
-
+  movies: ContentModel[] = [];
   constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
   ngOnInit() {
     const userId = this.user.id;
@@ -32,6 +32,15 @@ export class ProfileComponent implements OnInit{
       next: (user) =>{
         this.username = user.username;
         this.email = user.email
+      },
+      error: (error) =>{
+        console.error("Erro ao obter o usuário", error);
+      }
+    })
+    this.authService.getMovie()
+    .subscribe({
+      next: (movie) => {
+        this.movies = Array.isArray(movie) ? movie : [movie];
       },
       error: (error) =>{
         console.error("Erro ao obter o usuário", error);
@@ -102,7 +111,11 @@ export class ProfileComponent implements OnInit{
     event.preventDefault();
     this.router.navigate(['create-content']);
   }
-  
+  redirectToEditAccount(event: Event){
+    event.preventDefault();
+    this.router.navigate(['edit-account']);
+  }
+
   logout() {
     localStorage.removeItem('jwtToken');
   

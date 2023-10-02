@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../models/userModel';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,13 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  editUser(userDto: any): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/users`, userDto);
+  }
 
+  deleteUser(): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/users`);
+  }
 
   addFollower(userId: number, followerId: number): Observable<any> {
     return this.http.post(`${this.baseUrl}/users/${userId}/followers/${followerId}`, {});

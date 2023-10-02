@@ -21,9 +21,28 @@
           <p>{{username}}</p>
         </div>
         <button (click)="redirectToCreateContent($event)" class="create-content-btn" type="submit">Adicionar Filme</button>
-        <button class="edit-content-btn" type="submit">Editar Conta</button>
+        <button (click)="redirectToEditAccount($event)" class="edit-content-btn" type="submit">Editar Conta</button>
         <button class="remove-content-btn" type="submit">Remover Conta</button>
         
 
+      </div>
+      <div class="content-container">
+        <hr class="horizontal-line">
+        <h2>Meus Filmes</h2>
+        <div class="movie-container">
+          <div *ngFor="let movie of movies" class="movie-card">
+            <h3>{{ movie.title }}</h3>
+            <p>Duração: {{ movie.duration }} minutos</p>
+            <p>Gênero: {{ movie.genre }}</p>
+            <p>Diretor: {{ movie.director }}</p>
+            <div class="movie-options">
+                <button class="edit-button" >Editar</button>
+                <button class="delete-button" >Excluir</button>
+            </div>
+          </div>
+          <div *ngIf="movies.length === 0" class="no-movies">
+            Nenhum filme disponível.
+          </div>
+        </div>
       </div>
 </div>

@@ -29,6 +29,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateContentComponent } from './components/create-content/create-content.component';
 import { AuthInterceptor } from './services/interceptor';
 import { MoviesComponent } from './components/movies/movies.component';
+import { EditAccountComponent } from './components/edit-account/edit-account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { MoviesComponent } from './components/movies/movies.component';
     EditContentComponent,
     CreateContentComponent,
     MoviesComponent,
+    EditAccountComponent,
   ],
   imports: [
     SlickCarouselModule,
@@ -94,6 +96,9 @@ import { MoviesComponent } from './components/movies/movies.component';
       },
       {
         path: 'movies', component: MoviesComponent,
+      },
+      {
+        path: 'edit-account', component:EditAccountComponent,
       },
     ])
   ],
