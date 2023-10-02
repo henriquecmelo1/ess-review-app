@@ -20,27 +20,41 @@
           <img src="../../../assets/userIcon.png">
           <p>{{username}}</p>
         </div>
-      </nav>
-    </header>
-    <div class="content">
-      <div class="icon">
-        <img src="../../../assets/userIcon.png">
-        <p>{{username}}</p>
+        <button (click)="redirectToCreateContent($event)" class="create-content-btn" type="submit">Adicionar Filme</button>
+        <button (click)="redirectToEditAccount($event)" class="edit-content-btn" type="submit">Editar Conta</button>
+        <button class="remove-content-btn" type="submit">Remover Conta</button>
+    
+
       </div>
-      <button (click)="toggleFollow()" class="follow-button" type="submit" [disabled]="followButtonText !== 'Parar de Seguir'">
-        {{ followButtonText }}
-      </button>
-      <div class="follow-info">
-        <a href="#" (click)="redirectToFollowingPage($event)">
-          <span class="following">{{ followingCount$ | async }}</span> <span class="txtfollowing"> Seguindo</span>
-        </a>
-        <a href="#" (click)="redirectToFollowersPage($event)">
-          <span class="followers">{{ followerCount$ | async }}</span> <span class="txtfollowers"> Seguidores</span>
-        </a>
+      <div>
+        <button (click)="toggleFollow()" class="follow-button" type="submit" [disabled]="followButtonText !== 'Parar de Seguir'">
+          {{ followButtonText }}
+        </button>
+        <div class="follow-info">
+          <a href="#" (click)="redirectToFollowingPage($event)">
+            <span class="following">{{ followingCount$ | async }}</span> <span class="txtfollowing"> Seguindo</span>
+          </a>
+          <a href="#" (click)="redirectToFollowersPage($event)">
+            <span class="followers">{{ followerCount$ | async }}</span> <span class="txtfollowers"> Seguidores</span>
+          </a>
+        </div>
+      <div class="content-container">
+        <hr class="horizontal-line">
+        <h2>Meus Filmes</h2>
+        <div class="movie-container">
+          <div *ngFor="let movie of movies" class="movie-card">
+            <h3>{{ movie.title }}</h3>
+            <p>Duração: {{ movie.duration }} minutos</p>
+            <p>Gênero: {{ movie.genre }}</p>
+            <p>Diretor: {{ movie.director }}</p>
+            <div class="movie-options">
+                <button class="edit-button" >Editar</button>
+                <button class="delete-button" >Excluir</button>
+            </div>
+          </div>
+          <div *ngIf="movies.length === 0" class="no-movies">
+            Nenhum filme disponível.
+          </div>
+        </div>
       </div>
-      <button (click)="redirectToCreateContent($event)" class="create-content-btn" type="submit">Adicionar Filme</button>
-      <button class="edit-content-btn" type="submit">Editar Conta</button>
-      <button class="remove-content-btn" type="submit">Remover Conta</button>
-    </div>
-  </div>
-  
+</div>

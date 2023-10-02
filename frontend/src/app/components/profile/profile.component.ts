@@ -26,12 +26,8 @@ export class ProfileComponent implements OnInit {
   id: number= 0;
   followButtonText: string = 'Seguir';
 
-  constructor(
-    private userService: UserService,
-    private authService: AuthService,
-    private router: Router
-  ) {}
-
+  movies: ContentModel[] = [];
+  constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
   ngOnInit() {
     const userId = this.user.id;
 
@@ -40,6 +36,15 @@ export class ProfileComponent implements OnInit {
         this.username = currentUser.username;
         this.email = currentUser.email
         this.id = currentUser.id
+      },
+      error: (error) =>{
+        console.error("Erro ao obter o usuário", error);
+      }
+    })
+    this.authService.getMovie()
+    .subscribe({
+      next: (movie) => {
+        this.movies = Array.isArray(movie) ? movie : [movie];
       },
       error: (error) =>{
         console.error("Erro ao obter o usuário", error);
@@ -108,7 +113,21 @@ export class ProfileComponent implements OnInit {
     event.preventDefault();
     this.router.navigate(['create-content']);
   }
-  
+  redirectToEditAccount(event: Event){
+    event.preventDefault();
+    this.router.navigate(['edit-account']);
+  }
+
+  redirectToFollowingPage(event: Event){
+    event.preventDefault();
+    this.router.navigate(['following']);
+  }
+
+  redirectToFollowersPage(event: Event){
+    event.preventDefault();
+    this.router.navigate(['following']);
+  }
+
   logout() {
     localStorage.removeItem('jwtToken');
   

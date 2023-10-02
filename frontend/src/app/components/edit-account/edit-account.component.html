@@ -1,0 +1,42 @@
+<div class="background-container">
+    <header>
+        <nav>
+            <div class="home-container">
+                <div class="logo">
+                    <img src="../../../assets/icon.png" alt="Logo">
+                </div>
+                <div class="nav-container">
+                    <div class="options">
+                        <a href="#" class="option"  (click)="redirectToMovies($event)"style="text-decoration: none">FILMES</a>
+                        <a href="#" class="option"  style="text-decoration: none">REVIEWS</a>
+                        <a href="#" class="option" (click)="logout()" style="text-decoration: none">SAIR</a>
+                    </div>
+                
+                </div>            
+            </div>
+        </nav>
+    </header>
+    <div>ola mundo</div><br><br>
+    <div class="content">
+        <form>
+          <section class="copy">
+            <h2>Editar Conta</h2>
+          </section>
+          <div class="input-container">
+            <label for="title">Usename</label>
+            <input [(ngModel)]="editDto.username" type="text" name="username" id="username">
+          </div>
+          <div class="input-container">
+            <label for="genre">Email</label>
+            <input [(ngModel)]="editDto.email" type="text" name="email" id="email">
+          </div>
+          <div class="input-container">
+            <label for="duration">Senha</label>
+            <input [(ngModel)]="editDto.password" type="text" name="password" id="password">
+          </div>
+          <button (click)="editUser()" class="submit-btn" type="submit">Submeter</button>
+        </form>
+      </div>
+    
+
+</div>

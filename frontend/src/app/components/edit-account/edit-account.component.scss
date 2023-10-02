@@ -23,7 +23,7 @@
     }
 }
 .options {
-    margin-left: 320px;
+    margin-left: 450px;
   }
   
   .option {
@@ -49,26 +49,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-}
-
-.topo{
-  display:flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  padding: 10rem;
-  color: white;
-  padding-bottom: 3px;
-  padding-top: 120px;
-}
-.title{
-  color: #F5F5F5;
-  font-family: Poppins;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 .dropdown {
@@ -147,84 +127,54 @@
   visibility: visible;
 }
 
-.movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 120px;
-  }
-  
-  .movie-card {
-    width: 30%;
-    margin-bottom: 20px;
-    border: 1px solid #d9d9d9; /* cor-gainsboro-100 */
-    border-radius: 20px; /* br-xl */
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff; /* cor-white */
-  
-    h3 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: #292929; /* cor-gray */
-      background-color: rgba(217, 217, 217, 0.52); /* cor-gainsboro-200 */
-      padding: 10px;
-    }
-  
-    p {
-      margin: 0.25rem 0;
-      padding: 0 10px;
-      color: #292929; /* cor-gray */
-    }
-  
-    .movie-options {
-      display: flex;
-      justify-content: space-around;
-      margin: 1rem;
-    }
-  
-    .edit-button {
-      padding: 8px 16px;
-      cursor: pointer;
-      background-color: #0072b3; /* cor-cornflowerblue-100 */
-      color: #fff; /* cor-white */
-      border: none;
-      border-radius: 4px;
-      text-align: center;
-      font-size: 12px; /* font-size-xs */
-      transition-duration: 0.4s;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #ececec; /* cor-whitesmoke */
-        color: #000; /* cor-black */
-      }
-    }
-  
-    .delete-button {
-      padding: 8px 16px;
-      cursor: pointer;
-      background-color: #ff0000; /* cor-red */
-      color: #fff; /* cor-white */
-      border: none;
-      border-radius: 4px;
-      text-align: center;
-      font-size: 12px; /* font-size-xs */
-      transition-duration: 0.4s;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #ececec; /* cor-whitesmoke */
-        color: #000; /* cor-black */
-      }
-    }
-  }
-  
-  .no-movies {
-    width: 100%;
-    text-align: center;
-    color: #292929; /* cor-gray */
-    margin-top: 2rem;
-  }
-  
+.content {
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.8); /* Adapte a opacidade conforme necessário */
+  margin: 60px;
+  margin-left: 370px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display:flex;
+  flex-direction: column;
+}
+
+.copy {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  background-color: #17093a;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px; /* Adicionei margem superior para afastar do último input */
+}
+
+.submit-btn:hover {
+  background-color: black;
+}
