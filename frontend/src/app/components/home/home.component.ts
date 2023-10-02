@@ -35,4 +35,8 @@ export class HomeComponent {
     event.preventDefault();
     this.router.navigate(['search']);
   }
+  redirectToMovies(event: Event){
+    event.preventDefault();
+    this.router.navigate(['movies']);
+  }
 }

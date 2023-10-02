@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.home {
+    &-container {
+      width: 100%;
+      height: 60px;
+      background-color: #0F0B38;
+      display: flex;
+      justify-content: flex-start   ;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+}
+
+.logo {
+    margin-left: 10px;
+    margin-top: 30px;
+    img {
+        width: 190px; /* Ajuste o tamanho da sua logo conforme necessário */
+        height: 212px;
+        flex-shrink: 0;
+    }
+}
+.options {
+    margin-left: 320px;
+  }
+  
+  .option {
+    color: #D8E0E8;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-right: 100px;
+  
+    &:hover {
+        color: #3f51b5;
+    }
+  }
+.line-container{
+    border-bottom: 1.5px solid black;
+    height: 1.5px; 
+    width: 1080px;
+}
+.background-container{
+    background-image: url('../../../assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.topo{
+  display:flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 10rem;
+  color: white;
+  padding-bottom: 3px;
+  padding-top: 120px;
+}
+.title{
+  color: #F5F5F5;
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  background: #0F0B38;
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  color: #D8E0E8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7em 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  position: relative;
+}
+.dropdown-btn img {
+  width: 38px; /* Ajuste o tamanho conforme necessário */
+  height: 38px;
+  margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+}
+
+.arrow {
+  margin-left: 5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #D8E0E8;
+  transition: transform ease-in-out 0.3s;
+}
+
+.dropdown-content {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 150%;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.dropdown-content li {
+  background: #0F0B38;
+  border-radius: 0.5em;
+  position: relative;
+  left: 0;
+  transition: 0.5s;
+}
+
+.dropdown-content li:hover {
+  background: #1d1f24;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 0.7em 0.5em;
+  color: #D8E0E8;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0.1em 0;
+  text-decoration: none;
+}
+
+/* Mostrar a lista quando o botão está em foco */
+.dropdown-btn:focus + .dropdown-content {
+  visibility: visible;
+}
