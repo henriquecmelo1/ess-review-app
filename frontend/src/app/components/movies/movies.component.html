@@ -20,5 +20,23 @@
             
         </nav>
     </header>
+    <div class="content-container">
+        <h2>Filmes</h2>
+        <div class="movie-container">
+          <div *ngFor="let movie of movies" class="movie-card">
+            <h3>{{ movie.title }}</h3>
+            <p>Duração: {{ movie.duration }} minutos</p>
+            <p>Gênero: {{ movie.genre }}</p>
+            <p>Diretor: {{ movie.director }}</p>
+            <div class="movie-options">
+                <button class="edit-button" >Editar</button>
+                <button class="delete-button" >Excluir</button>
+            </div>
+          </div>
+          <div *ngIf="movies.length === 0" class="no-movies">
+            Nenhum filme disponível.
+          </div>
+        </div>
+      </div>
 </div>
 

@@ -11,14 +11,13 @@ import { ContentModel } from '../../models/content';
 export class MoviesComponent implements OnInit{
   loggedInUser: User | null = null;
   title: string | null = null;
-  movie: ContentModel | undefined;
+  movies: ContentModel[] = [];
   constructor(private authService: AuthService, private router: Router){}
   ngOnInit() {
     this.authService.getMovie()
     .subscribe({
       next: (movie) => {
-        this.title = movie.title
-        console.log(this.movie?.title)
+        this.movies = Array.isArray(movie) ? movie : [movie];
       },
       error: (error) =>{
         console.error("Erro ao obter o usuário", error);
