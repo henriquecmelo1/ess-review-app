@@ -23,9 +23,21 @@
         <button (click)="redirectToCreateContent($event)" class="create-content-btn" type="submit">Adicionar Filme</button>
         <button (click)="redirectToEditAccount($event)" class="edit-content-btn" type="submit">Editar Conta</button>
         <button class="remove-content-btn" type="submit">Remover Conta</button>
-        
+    
 
       </div>
+      <div>
+        <button (click)="toggleFollow()" class="follow-button" type="submit" [disabled]="followButtonText !== 'Parar de Seguir'">
+          {{ followButtonText }}
+        </button>
+        <div class="follow-info">
+          <a href="#" (click)="redirectToFollowingPage($event)">
+            <span class="following">{{ followingCount$ | async }}</span> <span class="txtfollowing"> Seguindo</span>
+          </a>
+          <a href="#" (click)="redirectToFollowersPage($event)">
+            <span class="followers">{{ followerCount$ | async }}</span> <span class="txtfollowers"> Seguidores</span>
+          </a>
+        </div>
       <div class="content-container">
         <hr class="horizontal-line">
         <h2>Meus Filmes</h2>

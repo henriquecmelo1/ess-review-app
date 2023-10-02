@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, NgModule } from '@angular/core'; // Importe o NgModule
+import { Component, Input, OnInit, NgModule } from '@angular/core';
 import { User } from '@prisma/client';
 import { Observable, of } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from 'app/services/auth.service';
 
 @Component({
   selector: 'follower-list',
@@ -10,44 +11,51 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./follower-list.component.scss']
 })
 export class FollowersListComponent implements OnInit {
-  @Input() user: User = {} as User; // O usuário que pode ser seguido
-  @Input() currentUser: User = {} as User; // usuário logado
+  @Input() currentUser: User = {} as User; // Usuário logado
+  id: number | null = null; // Adicione esta propriedade
 
   followerCount$: Observable<number> = of(0);
   isFollowing$: Observable<boolean> = of(false);
   followers$: Observable<User[]> = of([]);
   following$: Observable<User[]> = of([]);
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private authService: AuthService) {} // Corrija a injeção do serviço AuthService
 
   ngOnInit() {
-    const userId = this.user.id;
-    const currentUserId = this.currentUser.id;
+    const currentUserId = this.currentUser.id; // Obtém o ID do usuário logado
 
-    // Verifica se o usuário atualmente logado está seguindo este usuário.
-    this.userService.isFollowing(currentUserId, userId).subscribe((isFollowing: boolean) => {
+    this.authService.getUserData().subscribe({
+      next: (currentUser) => {
+        this.id = currentUser.id;
+      },
+      error: (error) => {
+        console.error("Erro ao obter o usuário", error);
+      }
+    });
+
+    // Verifica se o usuário logado está seguindo este usuário (você pode manter esse trecho, se necessário).
+    this.userService.isFollowing(currentUserId, currentUserId).subscribe((isFollowing: boolean) => {
       this.isFollowing$ = of(isFollowing);
     });
 
-    // Recupera a contagem de seguidores para o perfil do usuário.
+    // Recupera a contagem de seguidores para o perfil do usuário logado.
     this.userService.getFollowersCount(currentUserId).subscribe((count: number) => {
       this.followerCount$ = of(count);
     });
 
-    // Recupera os seguidores do usuário.
+    // Recupera os seguidores do usuário logado.
     this.userService.getFollowers(currentUserId).subscribe((followers: User[]) => {
       this.followers$ = of(followers);
     });
 
-    // Recupera os usuários que este usuário está seguindo.
+    // Recupera os usuários que o usuário logado está seguindo.
     this.userService.getFollowing(currentUserId).subscribe((following: User[]) => {
       this.following$ = of(following);
     });
   }
-
 }
 
-@NgModule({ 
+@NgModule({
   declarations: [FollowersListComponent],
   imports: [CommonModule],
   exports: [FollowersListComponent]

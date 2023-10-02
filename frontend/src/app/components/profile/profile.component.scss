@@ -315,8 +315,8 @@
     width: 190px;
     height: 212px;
     object-fit: cover;
-    top: 386px; 
-    left: 1000px; 
+    top: 406px; 
+    left: 140px; 
   }
   
   .following {
@@ -331,16 +331,69 @@
     width: 290px;
     height: 212px;
     object-fit: cover;
-    top: 386px; 
-    left: 1200px; 
+    top: 406px; 
+    left: 170px; 
   }
   
+
+  .txtfollowing{
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    margin-left: 10px;
+    width: 190px;
+    height: 212px;
+    object-fit: cover;
+    top: 436px; 
+    left: 230px; 
+  }
+
+  .txtfollowers{
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    margin-left: 10px;
+    width: 190px;
+    height: 212px;
+    object-fit: cover;
+    top: 436px; 
+    left: 140px; 
+  }
   
   .followers span,
   .following span {
     font-size: 18px;
   }
   
+  .follow-button{
+    display: block;
+    width: 150px;
+    background: rgb(44, 148, 162);
+    color: white;   
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 70px;
+    margin-top: 220px;
+}
+
+.follow-button:hover {
+  background: rgb(156, 156, 179)
+}
+
+
   a.router-link {
     text-decoration: none; /* Remover sublinhado dos links */
     color: #fefefe; /* Cor do link */

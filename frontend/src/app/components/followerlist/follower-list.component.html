@@ -31,9 +31,16 @@
   
   
           <div class="topo">
-            <h1 class="title">Seguidores
-                </h1>
-            <div class="line-container"></div> 
-        </div>
-  
+            <h1 class="title">Seguidores</h1>
+            <div class="line-container"></div>
+          </div>
+      
+          <div class="follower-list">
+            <h2>Lista de Seguidores</h2>
+            <ul>
+              <li *ngFor="let follower of followers$ | async">
+                {{ follower.username }}
+              </li>
+            </ul>
+          </div>
         </body>
