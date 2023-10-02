@@ -33,7 +33,11 @@
           <div class="topo">
             <h1 class="title">Seguindo
                 </h1>
-            <div class="line-container"></div> 
-        </div>
-    
-        </body>
+                <div class="following-list">
+
+                  <ul>
+                    <li *ngFor="let user of following$ | async">
+                      {{ user.username }}
+                    </li>
+                  </ul>
+                </div>

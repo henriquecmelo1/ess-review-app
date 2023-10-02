@@ -1,29 +1,39 @@
 <div class="background-container">
     <header>
-        <nav>
-            <div class="home-container">
-                <div class="logo">
-                    <img src="../../../assets/icon.png" alt="Logo">
-                </div>
-                <div class="nav-container">
-                    <div class="options">
-                        <a href="#" class="option"  style="text-decoration: none">FILMES</a>
-                        <a href="#" class="option"  style="text-decoration: none">REVIEWS</a>
-                        <a href="#" class="option"  (click)="redirectToHome($event)" style="text-decoration: none">SAIR</a>
-                    </div>                    
-                </div>     
-            </div>            
-        </nav>
-      </header>
-      <div class="content">
-        <div class="icon">
-          <img src="../../../assets/userIcon.png">
-          <p>{{username}}</p>
+      <nav>
+        <div class="home-container">
+          <div class="logo">
+            <img src="../../../assets/icon.png" alt="Logo">
+          </div>
+          <div class="nav-container">
+            <div class="options">
+              <a href="#" class="option" style="text-decoration: none">FILMES</a>
+              <a href="#" class="option" style="text-decoration: none">REVIEWS</a>
+              <a href="#" class="option" (click)="redirectToHome($event)" style="text-decoration: none">SAIR</a>
+            </div>
+          </div>
         </div>
-        <button (click)="redirectToCreateContent($event)" class="create-content-btn" type="submit">Adicionar Filme</button>
-        <button class="edit-content-btn" type="submit">Editar Conta</button>
-        <button class="remove-content-btn" type="submit">Remover Conta</button>
-        
-
+      </nav>
+    </header>
+    <div class="content">
+      <div class="icon">
+        <img src="../../../assets/userIcon.png">
+        <p>{{username}}</p>
       </div>
-</div>
+      <button (click)="toggleFollow()" class="follow-button" type="submit" [disabled]="followButtonText !== 'Parar de Seguir'">
+        {{ followButtonText }}
+      </button>
+      <div class="follow-info">
+        <a href="#" (click)="redirectToFollowingPage($event)">
+          <span class="following">{{ followingCount$ | async }}</span> <span class="txtfollowing"> Seguindo</span>
+        </a>
+        <a href="#" (click)="redirectToFollowersPage($event)">
+          <span class="followers">{{ followerCount$ | async }}</span> <span class="txtfollowers"> Seguidores</span>
+        </a>
+      </div>
+      <button (click)="redirectToCreateContent($event)" class="create-content-btn" type="submit">Adicionar Filme</button>
+      <button class="edit-content-btn" type="submit">Editar Conta</button>
+      <button class="remove-content-btn" type="submit">Remover Conta</button>
+    </div>
+  </div>
+  
