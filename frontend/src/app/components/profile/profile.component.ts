@@ -108,13 +108,10 @@ export class ProfileComponent implements OnInit {
     event.preventDefault();
     this.router.navigate(['create-content']);
   }
-  redirectToFollowingPage(event: Event) {
-    event.preventDefault();
-    this.router.navigate(['/following']); // Substitua '/seguindo' pelo URL real da sua página "Seguindo".
-  }
-
-  redirectToFollowersPage(event: Event) {
-    event.preventDefault();
-    this.router.navigate(['/followers']); // Substitua '/seguidores' pelo URL real da sua página "Seguidores".
+  
+  logout() {
+    localStorage.removeItem('jwtToken');
+  
+    this.router.navigate(['home']);
   }
 }

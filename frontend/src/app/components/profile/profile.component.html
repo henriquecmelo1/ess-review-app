@@ -1,17 +1,24 @@
 <div class="background-container">
     <header>
-      <nav>
-        <div class="home-container">
-          <div class="logo">
-            <img src="../../../assets/icon.png" alt="Logo">
-          </div>
-          <div class="nav-container">
-            <div class="options">
-              <a href="#" class="option" style="text-decoration: none">FILMES</a>
-              <a href="#" class="option" style="text-decoration: none">REVIEWS</a>
-              <a href="#" class="option" (click)="redirectToHome($event)" style="text-decoration: none">SAIR</a>
-            </div>
-          </div>
+        <nav>
+            <div class="home-container">
+                <div class="logo">
+                    <img src="../../../assets/icon.png" alt="Logo">
+                </div>
+                <div class="nav-container">
+                    <div class="options">
+                        <a href="#" class="option"  style="text-decoration: none">FILMES</a>
+                        <a href="#" class="option"  style="text-decoration: none">REVIEWS</a>
+                        <a href="#" class="option"  (click)="logout()" style="text-decoration: none">SAIR</a>
+                    </div>                    
+                </div>     
+            </div>            
+        </nav>
+      </header>
+      <div class="content">
+        <div class="icon">
+          <img src="../../../assets/userIcon.png">
+          <p>{{username}}</p>
         </div>
       </nav>
     </header>
