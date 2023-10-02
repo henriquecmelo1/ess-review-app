@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit{
           next: (user) => {
             this.user = user;
             console.log('Detalhes do usuário', this.user)
+            console.log(this.user.id)
             this.router.navigate(['home', this.user.id])
           },
           error: (error) =>{

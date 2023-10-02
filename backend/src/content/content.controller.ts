@@ -2,7 +2,8 @@ import { Controller, Delete, Param, Patch, Body, UseGuards, Get, Post, ParseIntP
 import { ContentService } from './content.service';
 import { UpdateContentDto, CreateContentDto } from './dto';
 import { GetUser } from '../auth/decorator';
-
+import { JwtGuard } from '../auth/guard/jwt.guard';
+@UseGuards(JwtGuard)
 @Controller('contents')
 export class ContentController {
     constructor(private contentService: ContentService) {}

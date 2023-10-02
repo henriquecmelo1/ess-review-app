@@ -14,6 +14,7 @@ import { JwtAuth } from "../../app/models/jwtAuth";
 export class AuthService{
     registerUrl = "auth/signup";
     loginUrl = "auth/signin";
+    usere: User | undefined;
     private jwtHelper = new JwtHelperService;
     constructor(private http: HttpClient){}
 

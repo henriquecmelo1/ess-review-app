@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(this.registerDto)
     .subscribe({
       next: res => {
-        console.log(res)
+        console.log("print do signup", res)
         this.router.navigate(['auth/signin'])
       },
       error: err => console.error(err), 
